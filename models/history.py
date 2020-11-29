@@ -7,6 +7,8 @@ class History:
         self.conn = sqlite3.connect('app_data/history.db')
         self.cursor = self.conn.cursor()
 
+        self.create_table_en()
+
         self.history_position_en = [self.history_rows("EN"),self.history_rows("EN")]
 
     def create_table_en(self):

@@ -1,7 +1,7 @@
 dictionary.db
 history.db
 settings.db
-
+Pipfile
 
 __pycache__/
 *.py[cod]

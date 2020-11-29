@@ -45,8 +45,12 @@ class UI(QMainWindow):
         self.cm_jp.addItems(self.dictionary.get_dict_list_jp())
         self.cm.addItems(self.dictionary.get_dict_list_en())
 
-        self.jp_dict = importlib.import_module("app_data.dictionary.JP." + self.settings_list[0][1] + ".main")
-        self.en_dict = importlib.import_module("app_data.dictionary.EN." + self.settings_list[0][3] + ".main")
+        try:
+            self.jp_dict = importlib.import_module("app_data.dictionary.JP." + self.settings_list[0][1] + ".main")
+            self.en_dict = importlib.import_module("app_data.dictionary.EN." + self.settings_list[0][3] + ".main")
+        except ModuleNotFoundError:
+            print("Dictionary not found")
+
 
         # update values from DB        
         index0 = self.jp_dic.findText(self.settings_list[0][0], QtCore.Qt.MatchFixedString)

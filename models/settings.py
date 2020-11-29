@@ -24,7 +24,7 @@ class Settings:
             return
         else:
             self.cursor.execute("""INSERT INTO settings (dict_jp, cm_jp, dict_en, cm_en) 
-            VALUES ("Jisho (JP)", "JMDict_English", "Cambridge (EN)", "Dictionary")""")
+            VALUES ("Jisho (JP)", "None", "Cambridge (EN)", "None")""")
             self.conn.commit()
 
 
