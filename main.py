@@ -5,17 +5,14 @@ from PyQt5.QtWebEngineWidgets import *
 
 import tkinter
 import sys
-import unicodedata
 import importlib
-
-import app_data.verb_maker.japanese.main as desc
-import app_data.frequency.frequency as frequency
 
 # CONTROLLERS
 from controllers.card_maker_controller import CardMakerController
 from controllers.dictionary_controller import DictionaryController
 from controllers.history_controller import HistoryController
 from controllers.settings_controller import SettingsController
+from controllers.clipboard_controller import ClipboardController
 
 
 class UI(QMainWindow):
@@ -28,6 +25,7 @@ class UI(QMainWindow):
         self.dictionary = DictionaryController()
         self.history = HistoryController()
         self.settings = SettingsController()
+        self.clipboard = ClipboardController()
 
         # HISROTY
         self.history.history_position_en[0] = self.history.get_rows("EN")
@@ -44,13 +42,6 @@ class UI(QMainWindow):
         # DICTIONARY
         self.cm_jp.addItems(self.dictionary.get_dict_list_jp())
         self.cm.addItems(self.dictionary.get_dict_list_en())
-
-        # LOAD THE DEFAULT DICTIONARY
-        try:
-            self.jp_dict = importlib.import_module("app_data.dictionary.JP." + self.settings_list[0][1] + ".main")
-            self.en_dict = importlib.import_module("app_data.dictionary.EN." + self.settings_list[0][3] + ".main")
-        except ModuleNotFoundError:
-            print("Dictionary not found")
 
 
         # SET SETTINGS VALUES
@@ -130,58 +121,30 @@ class UI(QMainWindow):
         #q_text = QApplication.clipboard().text()
         self.focusOutEvent(QApplication)
 
-        try:    
-            text = tkinter.Tk().clipboard_get().lower().strip()
-        except tkinter.TclError:
-            text = None
+        try:
+            cp = QApplication.clipboard().text()
+        except:
+            try:
+                cp = tkinter.Tk().clipboard_get()
+            except tkinter.TclError:
+                gui_data = ["", "", "", "", ""]
 
-        if type(text) == str:            
-            if unicodedata.category(text[0]) == "Lo":
+        gui_data = self.clipboard.clipboard_check(cp)
 
-                self.card_maker.inf_clean()
-                word_desc = desc.r_conj(text)
-                definitions = self.jp_dict.main(word_desc)
-                stars = frequency.f_stars("JP", word_desc)
+        self.update_gui(gui_data[0], gui_data[1], gui_data[2], gui_data[3], gui_data[4])
 
-                b_card = ""
+        if gui_data[4] == "EN":
+                
+            if gui_data[0] != self.card_maker.last_word:
+                self.history.set_history(gui_data[0], gui_data[3], "EN")
+                self.card_maker.last_word = gui_data[0]
 
-                for wo in definitions:
-                    b_card = b_card + f"<center>{wo[5][0]}</center>"
-
-                self.update_gui(word_desc, b_card, word_desc, stars, "JP")
-
-
-            elif " " in text:
-
-                self.card_maker.inf_clean()
-                self.gui_clean()
-                self.dict_web.load(QUrl(f"https://translate.google.com.br/?hl=pt-BR&tab=TT&sl=auto&tl=pt&text={text}&op=translate"))
-
-            else:
-
-                self.card_maker.inf_clean()
-                stars = frequency.f_stars("EN", text)
-                ba_card = self.en_dict.main(text)
-
-                f_card = text.replace('\n', '')
-
-                b_card = []
-                for b in ba_card:              
-                    b_card.append(b.replace('\n', ''))
-
-                t_card = f_card
-
-                self.update_gui(f_card, b_card[0], t_card, stars, "EN")
-                if f_card != self.card_maker.last_word:
-                    self.history.set_history(f_card, stars, "EN")
-                    self.card_maker.last_word = text
-
-                self.history.history_position_en[0] = self.history.get_rows("EN")
-                self.prev_button.setEnabled(False)
-                if(self.history.get_rows("EN") <= 50):
-                    self.next_button.setEnabled(False)                
-                self.history_en.setText(self.history.history_show(self.history.get_rows("EN")))
-                self.save_card.setEnabled(True)
+            self.history.history_position_en[0] = self.history.get_rows("EN")
+            self.prev_button.setEnabled(False)
+            if(self.history.get_rows("EN") <= 50):
+                self.next_button.setEnabled(False)                
+            self.history_en.setText(self.history.history_show(self.history.get_rows("EN")))
+            self.save_card.setEnabled(True)
 
 
     def closeEvent(self, event):

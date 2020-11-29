@@ -2,6 +2,7 @@ dictionary.db
 history.db
 settings.db
 Pipfile
+*.txt
 
 __pycache__/
 *.py[cod]
