@@ -1,0 +1,1265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>796</width>
+    <height>649</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Card Maker</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*
+ManjaroMix Style Sheet for QT Applications
+Author: Jaime A. Quiroga P.
+Company: GTRONICK
+Last updated: 25/02/2020, 15:42.
+Available at: https://github.com/GTRONICK/QSS/blob/master/ManjaroMix.qss
+*/
+QMainWindow {
+	background-color:#151a1e;
+}
+QCalendar {
+	background-color: #151a1e;
+}
+QTextEdit {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+	background-color: #222b2e;
+	color: #d3dae3;
+}
+QPlainTextEdit {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+	background-color: #222b2e;
+	color: #d3dae3;
+}
+QToolButton {
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: #d3dae3;
+	padding: 2px;
+	background-color: rgb(255,255,255);
+}
+QToolButton:hover{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(195, 195, 195), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(197, 197, 197), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(197, 197, 197));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(195, 195, 195), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: rgb(0,0,0);
+	padding: 2px;
+	background-color: rgb(255,255,255);
+}
+QToolButton:pressed{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: rgb(0,0,0);
+	padding: 2px;
+	background-color: rgb(142,142,142);
+}
+QPushButton{
+	border-style: solid;
+	border-color: #050a0e;
+	border-width: 1px;
+	border-radius: 5px;
+	color: #d3dae3;
+	padding: 2px;
+	background-color: #151a1e;
+}
+QPushButton::default{
+	border-style: solid;
+	border-color: #050a0e;
+	border-width: 1px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	padding: 2px;
+	background-color: #151a1e;;
+}
+QPushButton:hover{
+	border-style: solid;
+	border-color: #050a0e;
+	border-width: 1px;
+	border-radius: 5px;
+	color: #d3dae3;
+	padding: 2px;
+	background-color: #1c1f1f;
+}
+QPushButton:pressed{
+	border-style: solid;
+	border-color: #050a0e;
+	border-width: 1px;
+	border-radius: 5px;
+	color: #d3dae3;
+	padding: 2px;
+	background-color: #2c2f2f;
+}
+QPushButton:disabled{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(217, 217, 217), stop:1 rgb(227, 227, 227));
+	border-left-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgb(227, 227, 227), stop:1 rgb(217, 217, 217));
+	border-bottom-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgb(215, 215, 215), stop:1 rgb(222, 222, 222));
+	border-width: 1px;
+	border-radius: 5px;
+	color: #808086;
+	padding: 2px;
+	background-color: rgb(142,142,142);
+}
+QLineEdit {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+	background-color: #222b2e;
+	color: #d3dae3;
+}
+QLabel {
+	color: #d3dae3;
+}
+QLCDNumber {
+	color: #4d9b87;
+}
+QProgressBar {
+	text-align: center;
+	color: #d3dae3;
+	border-radius: 10px;
+	border-color: transparent;
+	border-style: solid;
+	background-color: #52595d;
+}
+QProgressBar::chunk {
+	background-color: #214037	;
+	border-radius: 10px;
+}
+QMenuBar {
+	background-color: #151a1e;
+}
+QMenuBar::item {
+	color: #d3dae3;
+  	spacing: 3px;
+  	padding: 1px 4px;
+	background-color: #151a1e;
+}
+
+QMenuBar::item:selected {
+  	background-color: #252a2e;
+	color: #FFFFFF;
+}
+QMenu {
+	background-color: #151a1e;
+}
+QMenu::item:selected {
+	background-color: #252a2e;
+	color: #FFFFFF;
+}
+QMenu::item {
+	color: #d3dae3;
+	background-color: #151a1e;
+}
+QTabWidget {
+	color:rgb(0,0,0);
+	background-color:#000000;
+}
+QTabWidget::pane {
+		border-color: #050a0e;
+		background-color: #1e282c;
+		border-style: solid;
+		border-width: 1px;
+    	border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+}
+QTabBar::tab:first {
+	border-style: solid;
+	border-left-width:1px;
+	border-right-width:0px;
+	border-top-width:1px;
+	border-bottom-width:0px;
+	border-top-color: #050a0e;
+	border-left-color: #050a0e;
+	border-bottom-color: #050a0e;
+	border-top-left-radius: 4px;
+	color: #d3dae3;
+	padding: 3px;
+	margin-left:0px;
+	background-color: #151a1e;
+}
+QTabBar::tab:last {
+	border-style: solid;
+	border-top-width:1px;
+	border-left-width:1px;
+	border-right-width:1px;
+	border-bottom-width:0px;
+	border-color: #050a0e;
+	border-top-right-radius: 4px;
+	color: #d3dae3;
+	padding: 3px;
+	margin-left:0px;
+	background-color: #151a1e;
+}
+QTabBar::tab {
+	border-style: solid;
+	border-top-width:1px;
+	border-bottom-width:0px;
+	border-left-width:1px;
+	border-top-color: #050a0e;
+	border-left-color: #050a0e;
+	border-bottom-color: #050a0e;
+	color: #d3dae3;
+	padding: 3px;
+	margin-left:0px;
+	background-color: #151a1e;
+}
+QTabBar::tab:selected, QTabBar::tab:last:selected, QTabBar::tab:hover {
+  	border-style: solid;
+  	border-left-width:1px;
+	border-bottom-width:0px;
+	border-right-color: transparent;
+	border-top-color: #050a0e;
+	border-left-color: #050a0e;
+	border-bottom-color: #050a0e;
+	color: #FFFFFF;
+	padding: 3px;
+	margin-left:0px;
+	background-color: #1e282c;
+}
+
+QTabBar::tab:selected, QTabBar::tab:first:selected, QTabBar::tab:hover {
+  	border-style: solid;
+  	border-left-width:1px;
+  	border-bottom-width:0px;
+  	border-top-width:1px;
+	border-right-color: transparent;
+	border-top-color: #050a0e;
+	border-left-color: #050a0e;
+	border-bottom-color: #050a0e;
+	color: #FFFFFF;
+	padding: 3px;
+	margin-left:0px;
+	background-color: #1e282c;
+}
+
+QCheckBox {
+	color: #d3dae3;
+	padding: 2px;
+}
+QCheckBox:disabled {
+	color: #808086;
+	padding: 2px;
+}
+
+QCheckBox:hover {
+	border-radius:4px;
+	border-style:solid;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	border-width:1px;
+	border-color: transparent;
+}
+QCheckBox::indicator:checked {
+
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-width: 1px;
+	border-color: #4fa08b;
+	color: #000000;
+	background-color: qradialgradient(cx:0.4, cy:0.4, radius: 1.5,fx:0, fy:0, stop:0 #1e282c, stop:0.3 #1e282c, stop:0.4 #4fa08b, stop:0.5 #1e282c, stop:1 #1e282c);
+}
+QCheckBox::indicator:unchecked {
+
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-width: 1px;
+	border-color: #4fa08b;
+	color: #000000;
+}
+QRadioButton {
+	color: #d3dae3;
+	padding: 1px;
+}
+QRadioButton::indicator:checked {
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-radius:5px;
+	border-width: 1px;
+	border-color: #4fa08b;
+	color: #a9b7c6;
+	background-color: qradialgradient(cx:0.5, cy:0.5, radius:0.4,fx:0.5, fy:0.5, stop:0 #4fa08b, stop:1 #1e282c);
+}
+QRadioButton::indicator:!checked {
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-radius:5px;
+	border-width: 1px;
+	border-color: #4fa08b;
+	color: #a9b7c6;
+	background-color: transparent;
+}
+QStatusBar {
+	color:#027f7f;
+}
+QSpinBox {
+	color: #d3dae3;
+	background-color: #222b2e;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+}
+QDoubleSpinBox {
+	color: #d3dae3;
+	background-color: #222b2e;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+}
+QTimeEdit {
+	color: #d3dae3;
+	background-color: #222b2e;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+}
+QDateTimeEdit {
+	color: #d3dae3;
+	background-color: #222b2e;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+}
+QDateEdit {
+	color: #d3dae3;
+	background-color: #222b2e;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+}
+QFontComboBox {
+	color: #d3dae3;
+	background-color: #222b2e;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+}
+QComboBox {
+	color: #d3dae3;
+	background-color: #222b2e;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #4fa08b;
+}
+
+QDial {
+	background: #16a085;
+}
+
+QToolBox {
+	color: #a9b7c6;
+	background-color: #222b2e;
+}
+QToolBox::tab {
+	color: #a9b7c6;
+	background-color:#222b2e;
+}
+QToolBox::tab:selected {
+	color: #FFFFFF;
+	background-color:#222b2e;
+}
+QScrollArea {
+	color: #FFFFFF;
+	background-color:#222b2e;
+}
+QSlider::groove:horizontal {
+	height: 5px;
+	background-color: #52595d;
+}
+QSlider::groove:vertical {
+	width: 5px;
+	background-color: #52595d;
+}
+QSlider::handle:horizontal {
+	background: #1a2224;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	width: 12px;
+	margin: -5px 0;
+	border-radius: 7px;
+}
+QSlider::handle:vertical {
+	background: #1a2224;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	height: 12px;
+	margin: 0 -5px;
+	border-radius: 7px;
+}
+QSlider::add-page:horizontal {
+    background: #52595d;
+}
+QSlider::add-page:vertical {
+    background: #52595d;
+}
+QSlider::sub-page:horizontal {
+    background-color: #15433a;
+}
+QSlider::sub-page:vertical {
+    background-color: #15433a;
+}
+QScrollBar:horizontal {
+	max-height: 10px;
+	border: 1px transparent grey;
+	margin: 0px 20px 0px 20px;
+	background: transparent;
+}
+QScrollBar:vertical {
+	max-width: 10px;
+	border: 1px transparent grey;
+	margin: 20px 0px 20px 0px;
+	background: transparent;
+}
+QScrollBar::handle:horizontal {
+	background: #52595d;
+	border-style: transparent;
+	border-radius: 4px;
+	min-width: 25px;
+}
+QScrollBar::handle:horizontal:hover {
+	background: #58a492;
+	border-style: transparent;
+	border-radius: 4px;
+	min-width: 25px;
+}
+QScrollBar::handle:vertical {
+	background: #52595d;
+	border-style: transparent;
+	border-radius: 4px;
+	min-height: 25px;
+}
+QScrollBar::handle:vertical:hover {
+	background: #58a492;
+	border-style: transparent;
+	border-radius: 4px;
+	min-height: 25px;
+}
+QScrollBar::add-line:horizontal {
+   border: 2px transparent grey;
+   border-top-right-radius: 4px;
+   border-bottom-right-radius: 4px;
+   background: #15433a;
+   width: 20px;
+   subcontrol-position: right;
+   subcontrol-origin: margin;
+}
+QScrollBar::add-line:horizontal:pressed {
+   border: 2px transparent grey;
+   border-top-right-radius: 4px;
+   border-bottom-right-radius: 4px;
+   background: rgb(181,181,181);
+   width: 20px;
+   subcontrol-position: right;
+   subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical {
+   border: 2px transparent grey;
+   border-bottom-left-radius: 4px;
+   border-bottom-right-radius: 4px;
+   background: #15433a;
+   height: 20px;
+   subcontrol-position: bottom;
+   subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:pressed {
+   border: 2px transparent grey;
+   border-bottom-left-radius: 4px;
+   border-bottom-right-radius: 4px;
+   background: rgb(181,181,181);
+   height: 20px;
+   subcontrol-position: bottom;
+   subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal {
+   border: 2px transparent grey;
+   border-top-left-radius: 4px;
+   border-bottom-left-radius: 4px;
+   background: #15433a;
+   width: 20px;
+   subcontrol-position: left;
+   subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal:pressed {
+   border: 2px transparent grey;
+   border-top-left-radius: 4px;
+   border-bottom-left-radius: 4px;
+   background: rgb(181,181,181);
+   width: 20px;
+   subcontrol-position: left;
+   subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+   border: 2px transparent grey;
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
+   background: #15433a;
+   height: 20px;
+   subcontrol-position: top;
+   subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:pressed {
+   border: 2px transparent grey;
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
+   background: rgb(181,181,181);
+   height: 20px;
+   subcontrol-position: top;
+   subcontrol-origin: margin;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+   background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+   background: none;
+}
+a {
+  color: #ffffff;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="QTabWidget" name="configs">
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="dict">
+       <attribute name="title">
+        <string>DICTIONARY</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QWebEngineView" name="dict_web" native="true"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="card_maker">
+       <attribute name="title">
+        <string>CARD MAKER</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>front</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="front_card"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>back</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextBrowser" name="back_card">
+          <property name="palette">
+           <palette>
+            <active>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Highlight">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>153</red>
+                <green>153</green>
+                <blue>153</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="HighlightedText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>166</red>
+                <green>166</green>
+                <blue>166</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Link">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="LinkVisited">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </active>
+            <inactive>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Highlight">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>153</red>
+                <green>153</green>
+                <blue>153</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="HighlightedText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>166</red>
+                <green>166</green>
+                <blue>166</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Link">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="LinkVisited">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </inactive>
+            <disabled>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>34</red>
+                <green>43</green>
+                <blue>46</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Highlight">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>0</red>
+                <green>120</green>
+                <blue>215</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="HighlightedText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>166</red>
+                <green>166</green>
+                <blue>166</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Link">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="LinkVisited">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>211</red>
+                <green>218</green>
+                <blue>227</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </disabled>
+           </palette>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"> &lt;style&gt;html{line-height:1.15;-webkit-text-size-adjust:100%;}body{margin:0;}main{display:block;}h1{font-size:2em;margin:0.67em 0;}hr{box-sizing:content-box;height:0;overflow:visible;}pre{font-family:monospace,monospace;font-size:1em;}a{background-color:transparent;}abbr[title]{border-bottom:none;-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted;}b,strong{font-weight:bolder;}code,kbd,samp{font-family:monospace,monospace;font-size:1em;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sub{bottom:-0.25em;}sup{top:-0.5em;}img{border-style:none;}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}button,input{overflow:visible;}button,select{text-transform:none;}button,[type=&quot;button&quot;],[type=&quot;reset&quot;],[type=&quot;submit&quot;]{-webkit-appearance:button;}button::-moz-focus-inner,[type=&quot;button&quot;]::-moz-focus-inner,[type=&quot;reset&quot;]::-moz-focus-inner,[type=&quot;submit&quot;]::-moz-focus-inner{border-style:none;padding:0;}button:-moz-focusring,[type=&quot;button&quot;]:-moz-focusring,[type=&quot;reset&quot;]:-moz-focusring,[type=&quot;submit&quot;]:-moz-focusring{outline:1px dotted ButtonText;}fieldset{padding:0.35em 0.75em 0.625em;}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal;}progress{vertical-align:baseline;}textarea{overflow:auto;}[type=&quot;checkbox&quot;],[type=&quot;radio&quot;]{box-sizing:border-box;padding:0;}[type=&quot;number&quot;]::-webkit-inner-spin-button,[type=&quot;number&quot;]::-webkit-outer-spin-button{height:auto;}[type=&quot;search&quot;]{-webkit-appearance:textfield;outline-offset:-2px;}[type=&quot;search&quot;]::-webkit-search-decoration{-webkit-appearance:none;}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit;}details{display:block;}summary{display:list-item;}template{display:none;}[hidden]{display:none;}*{box-sizing:border-box;}@font-face{font-family:'dictionary-fonticon';src:url(https://www.dictionary.com/assets/dictionary-font-40c247c26bfb54a76303dcd92c3d8a28.eot) format('embedded-opentype'),url(https://www.dictionary.com/assets/dictionary-font-77df47246809cbb25165cde26c7de2bb.woff) format('woff'),url(https://www.dictionary.com/assets/dictionary-font-5fcd8de7f224430f9ea55a3e243f5daa.ttf) format('truetype'),url(https://www.dictionary.com/assets/dictionary-font-50bf4aa37b5a369425394f526d9850bb.svg#dictionary-font) format('svg');}ul,ol,dl{margin:0 auto;padding:0;}button,input,optgroup,select,textarea{font-family:inherit;}html{overflow-x:hidden;}body{margin:0;font:14px Arial,sans-serif;line-height:1.47;background-color:#F3F3F3;color:#4A4A4A;}body.show-spell .pron-spell{display:inline-block;}body.show-spell .pron-ipa{display:none;}body.show-ipa .pron-spell{display:none;}body.show-ipa .pron-ipa{display:inline-block;}body.show-spell .pron-spell{display:inline-block;}body.show-spell .pron-ipa{display:none;}body.show-ipa .pron-spell{display:none;}body.show-ipa .pron-ipa{display:inline-block;}a{-webkit-text-decoration:none;text-decoration:none;color:#00248B;}.one-click:hover{color:#00248B;cursor:pointer;}.luna-pronset .audio-player{font-family:dictionary-fonticon;font-size:12px;color:#B6B6B6;cursor:pointer;padding:1px;}.luna-pronset .audio-player::before{content:'\e803';}.bold{font-weight:bold;}.italic{font-style:italic;}.one-click-content{position:relative;z-index:1;cursor:pointer;}.css-110arj1{padding-top:116px;}@media (min-width:1024px){.css-110arj1{padding-top:112px;}}.css-1e8sny7{line-height:1.15;z-index:2000000001;position:fixed;top:0px;width:100%;-webkit-transition:-webkit-transform 0.4s ease;-webkit-transition:transform 0.4s ease;transition:transform 0.4s ease;}.css-1sumpbm{font-family:Arial,sans-serif;}.css-dnx5pe{background:#FFFFFF;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;overflow:hidden;}.css-gdxy9m{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;list-style:none;-webkit-flex:1;-ms-flex:1;flex:1;margin:0;padding:0;background:#F3F3F3;}.css-z8zuik{cursor:pointer;-webkit-flex:1;-ms-flex:1;flex:1;list-style-type:none;text-align:center;z-index:3;border-radius:3px 3px 0 0;background-color:#00248B;color:#FFFFFF;font-weight:bold;}.css-z8zuik:first-of-type{border-top-left-radius:0;}@media (min-width:1024px){.css-z8zuik{-webkit-flex:none;-ms-flex:none;flex:none;width:186px;}}.css-ixznhr{color:inherit;display:inline-block;font-size:14px;padding:10px 0;-webkit-text-decoration:none;text-decoration:none;width:100%;}.css-2ikfv5{cursor:pointer;-webkit-flex:1;-ms-flex:1;flex:1;list-style-type:none;text-align:center;z-index:3;border-radius:3px 3px 0 0;color:#767676;background-color:#FFFFFF;}.css-2ikfv5:first-of-type{border-top-left-radius:0;}@media (min-width:1024px){.css-2ikfv5{-webkit-flex:none;-ms-flex:none;flex:none;width:186px;}}.css-2ikfv5:last-of-type{border-right:1px solid #B6B6B6;}.css-2ikfv5:first-of-type{border-left:1px solid #B6B6B6;}.css-2ikfv5:hover{background-color:#F3F3F3;}.css-2ikfv5:active{background-color:#E1E1E1;}.css-d11k9u{text-align:center;display:none;}@media (min-width:1024px){.css-d11k9u{display:block;}}.css-1ftrdo3{list-style:none;margin:0;padding:0;}.css-sazm1n{display:inline-block;padding:8px 24px;color:#1A1A1A;font-size:12px;cursor:pointer;position:relative;}.css-sazm1n:after{content:'';position:absolute;width:1px;height:50%;right:0;top:25%;background-color:#B6B6B6;}.css-sazm1n:last-child:after{content:initial;}.css-sazm1n:hover,.css-sazm1n:active{font-weight:bold;color:#00248B;}.css-sazm1n:hover .e1kukdvf0{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-sazm1n:hover .eov8ew0{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-nvk9vh{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;display:none;}.css-nvk9vh::before{content:'';width:0;height:0;position:absolute;margin-top:8px;border-left:15px solid transparent;border-right:15px solid transparent;border-bottom:15px solid #00248B;}@media (min-width:1024px){.css-nvk9vh::before{margin-top:0;}}.css-nvk9vh::after{content:'';width:80px;height:48px;position:absolute;}.css-d1z7us{position:fixed;background-color:#00248B;width:100vw;left:0;top:111px;z-index:10;display:none;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;box-shadow:0px 3px 3px rgba(0,0,0,0.12);cursor:default;border-radius:3px;}@media (min-width:480px){.css-d1z7us{top:127px;}}@media (min-width:1024px){.css-d1z7us{top:36px;}}.css-1trdo41{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:32px 0;}@media (min-width:1024px){.css-1trdo41{padding:48px 0;}}.css-dhteqw{margin-right:48px;display:none;}@media (min-width:768px){.css-dhteqw{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}}.css-vob5rs{color:#1A1A1A;font-weight:bold;margin:0;padding:0;color:#FFFFFF;font-size:24px;line-height:0.8;margin-bottom:4px;}@media (min-width:768px){.css-1rr8rfl{margin-left:40px;}}.css-1kvxfqx{text-align:center;}@media (min-width:768px){.css-1kvxfqx{text-align:left;}}.css-nh89sg{margin-bottom:24px;font-size:16px;text-transform:capitalize;color:#FFFFFF;font-weight:normal;}.css-nh89sg:last-child{margin-bottom:0;}@media (min-width:1024px){.css-nh89sg{margin-bottom:16px;}}.css-1c684v4{color:#00248B;cursor:pointer;-webkit-text-decoration:none;text-decoration:none;color:inherit;}.css-1c684v4:hover{-webkit-text-decoration:underline;text-decoration:underline;}.css-zdpt2t{margin-left:auto;}.css-1ttiqg4{width:36px;height:36px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}.css-1y8ihjv{color:#00248B;cursor:pointer;-webkit-text-decoration:none;text-decoration:none;color:unset;}.css-1y8ihjv:hover{-webkit-text-decoration:underline;text-decoration:underline;}.css-1s9uxnr{font-family:dictionary-fonticon;width:24px;height:24px;font-size:24px;vertical-align:text-bottom;-webkit-transition:-webkit-transform 0.3s;-webkit-transition:transform 0.3s;transition:transform 0.3s;display:inline-block;color:#1A1A1A;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}.css-1s9uxnr:before{content:'\e914';}.css-1rekcs1{font-family:dictionary-fonticon;width:24px;height:24px;font-size:24px;vertical-align:text-bottom;-webkit-transition:-webkit-transform 0.3s;-webkit-transition:transform 0.3s;transition:transform 0.3s;display:inline-block;color:#1A1A1A;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:none;}.css-1rekcs1:before{content:'\e913';}.css-11g4twu{height:100vh;width:100vw;position:fixed;top:0;right:0;z-index:100;font-size:16px;padding:24px;padding-bottom:32px;background-color:#FFFFFF;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:none;}@media (min-width:768px){.css-11g4twu{height:unset;width:320px;top:36px;-webkit-filter:drop-shadow(0 2px 8px rgba(0,0,0,0.15));filter:drop-shadow(0 2px 8px rgba(0,0,0,0.15));border-radius:3px;}.css-11g4twu::before{content:'';position:absolute;right:0;top:-6px;width:36px;height:18px;background-color:#FFFFFF;-webkit-clip-path:polygon(50% 0%,100% 100%,0% 100%);clip-path:polygon(50% 0%,100% 100%,0% 100%);}}.css-jbbmo6{position:absolute;top:16px;right:16px;}.css-rmsm6t{font-family:dictionary-fonticon;width:24px;height:24px;font-size:24px;vertical-align:text-bottom;-webkit-transition:-webkit-transform 0.3s;-webkit-transition:transform 0.3s;transition:transform 0.3s;display:inline-block;color:#1A1A1A;cursor:pointer;}.css-rmsm6t:before{content:'\e904';}.css-1fukqb3{height:72px;width:72px;border-radius:50%;background-image:linear-gradient( to right,#00248B 50%,#F44725 50% );display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:16px;}.css-1p5cs0f{height:68px;width:68px;border-radius:50%;background-color:#FFFFFF;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}.css-cupn3j{font-family:dictionary-fonticon;width:24px;height:24px;font-size:24px;vertical-align:text-bottom;-webkit-transition:-webkit-transform 0.3s;-webkit-transition:transform 0.3s;transition:transform 0.3s;display:inline-block;color:#1A1A1A;}.css-cupn3j:before{content:'\e913';}.css-al1cgp{position:absolute;font-weight:bold;visibility:hidden;}.css-nmcwjk{color:#1A1A1A;font-weight:bold;margin-bottom:32px;visibility:hidden;}.css-13qoq5o{padding:0;list-style:none;text-align:center;}.css-e55px4:not(:last-of-type){margin-bottom:32px;}.css-17qnxo3{color:#00248B;cursor:pointer;-webkit-text-decoration:none;text-decoration:none;font-size:16px;color:#1A1A1A;}.css-17qnxo3:hover{-webkit-text-decoration:underline;text-decoration:underline;}.css-1106ko8{font-size:16px;padding:0;background:none;border:none;cursor:pointer;}.css-1106ko8:hover{-webkit-text-decoration:underline;text-decoration:underline;}.css-1106ko8:active{outline:none;}.css-6miuqi{background:#00248B;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-e1zu4x{color:#4A4A4A;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;max-width:100%;}.css-blbewk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin:0 auto;padding:8px 12px 0;}@media (min-width:768px){.css-blbewk{padding:8px 16px 0;}}@media (min-width:1024px){.css-blbewk{padding:16px;max-width:768px;}}.css-heh352{display:none;}@media (min-width:480px){.css-heh352{display:block;}}.css-n92ifr{margin-right:16px;height:42px;}.css-1qw4ra5{height:100%;width:auto;}.css-19rouy7{-webkit-flex:1;-ms-flex:1;flex:1;position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;z-index:1;}.css-17gzhcb{background-color:#fff;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;border-radius:3px;}.css-ka40no{border-right:1px solid #B6B6B6;cursor:pointer;display:none;margin:8px;padding-right:4px;}@media (min-width:480px){.css-ka40no{display:block;}}.css-79elbk{position:relative;}.css-1817d2f{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;border-radius:3px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding-left:8px;padding-right:4px;}.css-nysvuv{color:#4A4A4A;font-size:12px;font-weight:bold;}.css-1pc7935{background:none;font-family:'dictionary-fonticon';speak:none;font-size:24px;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;margin-left:4px;}.css-1pc7935:after{content:'\e613';}.css-1wtgemt{background:#FFFFFF;border-radius:3px;box-shadow:0 2px 3px rgba(50,50,50,0.4);cursor:pointer;left:0;list-style-type:none;margin:0;overflow:hidden;padding:0;position:absolute;max-height:0px;-webkit-transition:max-height 100ms ease;transition:max-height 100ms ease;width:100%;z-index:2;}.css-1wnzdoc{margin:8px 0;}.css-jaagka{font-size:12px;font-weight:bold;padding:0 8px;}.css-1dv1kvn{border:0;-webkit-clip:rect(0 0 0 0);clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}.css-1f68fmt{-webkit-flex:1 0;-ms-flex:1 0;flex:1 0;position:relative;}.css-dz5u70{width:100%;-webkit-flex:1;-ms-flex:1;flex:1;outline:none;font-size:18px;color:#4A4A4A;padding:4px 8px;border:none;}.css-dz5u70::-ms-clear{display:none;width:0;height:0;}.css-dz5u70::-webkit-search-decoration,.css-dz5u70::-webkit-search-cancel-button,.css-dz5u70::-webkit-search-results-button,.css-dz5u70::-webkit-search-results-decoration{display:none;}.css-lo2v10{background:none;font-family:'dictionary-fonticon';speak:none;font-size:24px;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;border-radius:3px;width:38px;height:38px;cursor:pointer;margin:0 8px;border:0;-webkit-transition:-webkit-transform 0.25s ease;-webkit-transition:transform 0.25s ease;transition:transform 0.25s ease;color:#1A1A1A;}.css-lo2v10:before{content:'\e614';}.css-lo2v10:hover{-webkit-transform:scale(1.2);-ms-transform:scale(1.2);transform:scale(1.2);}.css-1g5g071{display:none;}@media (min-width:1024px){.css-1g5g071{display:block;position:absolute;width:100%;height:calc(100% + 16px);z-index:-1;top:0;background-color:#0A0049;}.css-1g5g071::before{content:'';position:absolute;bottom:0;height:16px;width:16px;-webkit-clip-path:polygon(0 0,0 100%,100% 100%);clip-path:polygon(0 0,0 100%,100% 100%);background-color:#00248B;}.css-1g5g071::after{content:'';position:absolute;bottom:0;right:-60px;height:100%;width:60px;-webkit-clip-path:polygon(0 0,0 100%,100% 100%);clip-path:polygon(0 0,0 100%,100% 100%);background-color:#0A0049;}}.css-15a3n10{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;overflow-x:auto;padding-left:16px;min-height:30px;}@media (min-width:480px){.css-15a3n10{padding-left:0;}}@media (min-width:1024px){.css-15a3n10{display:none;}}.css-1q3s47i{list-style:none;margin:0;padding:0;color:#FFFFFF;font-size:12px;margin:0 auto;cursor:pointer;white-space:nowrap;}.css-89zurp{display:inline-block;margin-right:24px;padding:8px 0;line-height:14px;}.css-89zurp:hover,.css-89zurp:active{font-weight:bold;-webkit-text-decoration:underline;text-decoration:underline;}@media (min-width:480px){.css-89zurp:hover,.css-89zurp:active{-webkit-text-decoration:none;text-decoration:none;}}.css-89zurp:last-child{margin-right:16px;}@media (min-width:480px){.css-89zurp:last-child{margin-right:0;}}.css-89zurp:hover .e1kukdvf0{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-89zurp:hover .eov8ew0{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-89zurp:hover .eov8ew0:before{display:none;}@media (min-width:480px){.css-89zurp:hover .eov8ew0:before{display:block;}}.css-89zurp:hover .e1pxhaqu2{display:block;}.css-1uox7ul{display:none;position:fixed;top:100px;left:0;width:100vw;height:100vh;background-color:#1A1A1A;opacity:0.5;cursor:default;z-index:-1;}.css-1uox7ul.css-1uox7ul.css-1uox7ul:hover{display:none;}.css-sz1l4q{min-height:calc(100vh - 40px);}@media only screen and (max-width:768px){.css-sz1l4q{min-height:calc(100vh - 81px);}}.css-d5e8ah{display:block;margin:0 auto;padding:0;}@media (max-width:768px){.css-d5e8ah{display:block;}}@media (min-width:1225px){.css-d5e8ah{width:1200px;}}.css-fhskcy{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;border:1px solid dashed;margin:20px 0;}.css-id9drh{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;min-height:90px;text-align:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}.css-198sw19{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;min-height:1px;padding:0 10px 15px 10px;width:100%;}@media (max-width:1200px){.css-198sw19{width:auto;}}@media (max-width:1088px){.css-198sw19{display:block;}}.css-1mnsj8u &gt; *:first-of-type{margin-top:0;}.css-1kwopph{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;overflow-x:auto;margin-top:12px;}@media (min-width:480px){.css-1kwopph{display:block;}}.css-1bo8c63{list-style:none;margin:0;padding:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;flex:0 0 auto;margin:8px;}@media (min-width:480px){.css-1bo8c63{-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}}.css-1eg9qtk{margin:0 8px 8px 0;}.css-fzlgqm{text-align:center;display:inline-block;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;font-size:16px;line-height:16px;font-weight:bold;border-radius:100px;-webkit-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out;position:relative;background-color:#92D6FF;color:#1A1A1A;padding:8px 16px;}.css-fzlgqm:before{content:' ';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;border:4px solid #0046BE;border-radius:100px;opacity:0;-webkit-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out;}.css-fzlgqm:focus{outline:none;}.css-fzlgqm:focus:not(:hover):not(:active):not([disabled]):before{opacity:1;}.css-fzlgqm:hover:not([disabled]){-webkit-transform:scale(1.05);-ms-transform:scale(1.05);transform:scale(1.05);}.css-fzlgqm:active:not([disabled]){background-color:#92D6FF;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}.css-fzlgqm[disabled]{background-color:#E1E1E1;cursor:not-allowed;color:#767676;}.css-fzlgqm[loading]{color:#E1E1E1;}.css-fzlgqm:hover{-webkit-text-decoration:none;text-decoration:none;}.css-fzlgqm:focus{-webkit-text-decoration:none;text-decoration:none;}.css-1fj93w9{background-color:#FFFFFF;margin:20px 0;padding:35px 40px;position:relative;}@media only screen and (max-width:768px){.css-1fj93w9{padding:30px;}}@media only screen and (max-width:480px){.css-1fj93w9{padding:20px;}}.css-1byp070{display: none;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}@media (min-width:768px){.css-1byp070{-webkit-align-items:baseline;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-bottom:8px;}}.css-1aps41m{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;margin-right:8px;line-height:normal;color:#1A1A1A;}.css-2m2rhw{color:#1A1A1A;display:inline;font-weight:bold;word-break:break-all;margin:0;font-size:49px;}.css-2m2rhw .subscript{vertical-align:sub;font-size:0.7em;}@media (max-width:768px){.css-2m2rhw{font-size:36px;}}.css-199xawt{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#1A1A1A;}.css-19i23xe{display:inline-block;}.css-19i23xe.show-ipa &gt; .pron-ipa-container{display:inline-block;}.css-19i23xe.show-spell &gt; .pron-spell-container{display:inline-block;}.css-1hyfx7x{display:none;}.css-1k8pnqm{font-size:18px;color:#4A4A4A;vertical-align:super;margin-right:8px;}.css-1k8pnqm .luna-pos{font-style:italic;}@media (min-width:768px){.css-1k8pnqm{font-size:20px;}}.css-7v9aqm{visibility: hidden;}.css-1r1wb5k{visibility: hidden;}.css-mjfyqs{background:none;border:none;padding:0;cursor:pointer;background-color:#00248B;border-radius:40px;height:40px;margin-right:8px;position:relative;-webkit-transition:200ms -webkit-transform ease;-webkit-transition:200ms transform ease;transition:200ms transform ease;width:40px;}.css-mjfyqs:hover{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1);}.css-mjfyqs::before{border-radius:40px;border:4px solid #0046BE;bottom:-4px;content:' ';left:-4px;opacity:0;position:absolute;right:-4px;top:-4px;-webkit-transition:all 250ms ease-in-out;transition:all 250ms ease-in-out;}.css-mjfyqs:focus{outline:none;}.css-mjfyqs:focus:not(:hover):not(:active):not([disabled])::before{opacity:1;}.css-1nzo650{font-family:dictionary-fonticon;width:24px;height:24px;font-size:24px;vertical-align:text-bottom;-webkit-transition:-webkit-transform 0.3s;-webkit-transition:transform 0.3s;transition:transform 0.3s;display:inline-block;border:none;color:#FFFFFF;cursor:pointer;margin-bottom:2px;}.css-1nzo650:before{content:'\e803';}.css-121eecm{font-family:dictionary-fonticon;width:24px;height:24px;font-size:24px;vertical-align:text-bottom;-webkit-transition:-webkit-transform 0.3s;-webkit-transition:transform 0.3s;transition:transform 0.3s;display:inline-block;border:none;color:#FFFFFF;cursor:pointer;margin-bottom:2px;}.css-121eecm:before{content:'\e924';}.css-1qzqk5f{font-family:dictionary-fonticon;width:24px;height:24px;font-size:24px;vertical-align:text-bottom;-webkit-transition:-webkit-transform 0.3s;-webkit-transition:transform 0.3s;transition:transform 0.3s;display:inline-block;border:none;color:#FFFFFF;cursor:pointer;margin-bottom:2px;}.css-1qzqk5f:before{content:'\e925';}.css-zv7ju9{visibility: hidden;}.css-16fyv5k{color:#F44725;font-size:14px;font-weight:bold;position:relative;-webkit-text-decoration:none;text-decoration:none;}.css-1msjh1x{font-style:italic;}.css-s9c9eg{border-top:0;border-bottom:1px solid #B6B6B6;margin-bottom:20px;}.css-pnw38j .luna-def-number{font-weight:bold;}.css-pnw38j .luna-pronset .luna-pos{font-style:italic;}.css-pnw38j .luna-wud,.css-pnw38j .small-caps{font-variant:small-caps;}.css-pnw38j .subscript{vertical-align:sub;font-size:0.7em;}.css-sdwj8v{margin:25px 0 0 0;}@media (max-width:768px){.css-sdwj8v{margin-bottom:2px;}}.css-chpztc{color:#1A1A1A;font-size:18px;font-weight:normal;font-style:italic;}.css-1o58fj8{font-size:15px;margin-left:20px;}.css-1o58fj8 .superscript{padding-left:2px;font-size:12px;vertical-align:super;}.css-1o58fj8 .expand-container,.css-1o58fj8 .expand-container &gt; div{padding-left:32px;margin-left:-32px;}.css-1ghs5zt{display:list-item;line-height:1.5;list-style:none;margin-top:8px;margin-bottom:4px;padding-left:25px;position:relative;}.css-1ghs5zt::before{color:#767676;content:'1';font-size:14px;height:32px;left:0px;line-height:26px;position:absolute;}.css-17f75g0{color:#1A1A1A;font-size:18px;}.css-17f75g0 .luna-example.italic{color:#4A4A4A;display:block;font-size:16px;}.css-17f75g0 .luna-nickname{font-style:italic;}.css-17f75g0 .luna-nickname::before{content:'&quot;(';}.css-17f75g0 .luna-nickname::after{content:')&quot;';}.css-17f75g0 .luna-aka{font-style:italic;}.css-17f75g0 .luna-aka::before{content:'(';}.css-17f75g0 .luna-aka::after{content:')';}.css-17f75g0 .audio-player{font-family:dictionary-fonticon;font-size:12px;color:#B6B6B6;cursor:pointer;padding:1px;}.css-17f75g0 .audio-player::before{content:'\e803';}.css-1i3x9xz{display:list-item;line-height:1.5;list-style:none;margin-top:8px;margin-bottom:4px;padding-left:25px;position:relative;}.css-1i3x9xz::before{color:#767676;content:'2';font-size:14px;height:32px;left:0px;line-height:26px;position:absolute;}.css-regryu{display:list-item;line-height:1.5;list-style:none;margin-top:8px;margin-bottom:4px;padding-left:25px;position:relative;}.css-regryu::before{color:#767676;content:'3';font-size:14px;height:32px;left:0px;line-height:26px;position:absolute;}.css-pnivxi{display:list-item;line-height:1.5;list-style:none;margin-top:8px;margin-bottom:4px;padding-left:25px;position:relative;}.css-pnivxi::before{color:#767676;content:'4';font-size:14px;height:32px;left:0px;line-height:26px;position:absolute;}.css-xc2n35{color:#1A1A1A;font-weight:bold;margin:0;padding:0;color:#1A1A1A;font-size:16px;line-height:1.15;margin-bottom:4px;margin-bottom:16px;}.css-tpqxit{color:#1A1A1A;font-size:16px;}.css-1r16d2{color:#1A1A1A;font-weight:bold;margin:0;padding:0;font-size:16px;line-height:1.15;margin-bottom:4px;font-size:24px;}.css-i3pbo{margin-bottom:24px;}.css-13giqdw{color:#00248B;font-size:14px;font-weight:bold;text-transform:uppercase;margin-bottom:4px;}.css-ufcpux{margin-bottom:16px;}@media (min-width:480px){.css-ufcpux{font-size:18px;margin-bottom:24px;}}.css-mjtrnm{color:#00248B;cursor:pointer;-webkit-text-decoration:none;text-decoration:none;color:inherit;}.css-mjtrnm:hover{-webkit-text-decoration:none;text-decoration:none;}.css-17ajczv{border:1px solid #E1E1E1;font-size:16px;margin-bottom:16px;padding:16px;}.css-1q8luf6{text-align:center;display:inline-block;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;font-size:16px;line-height:16px;font-weight:bold;width:100%;border-radius:100px;-webkit-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out;position:relative;background-color:#00248B;color:#FFFFFF;padding:16px 40px;}.css-1q8luf6:before{content:' ';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;border:4px solid #0046BE;border-radius:100px;opacity:0;-webkit-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out;}.css-1q8luf6:focus{outline:none;}.css-1q8luf6:focus:not(:hover):not(:active):not([disabled]):before{opacity:1;}.css-1q8luf6:hover:not([disabled]){-webkit-transform:scale(1.05);-ms-transform:scale(1.05);transform:scale(1.05);}.css-1q8luf6:active:not([disabled]){background-color:#00125D;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}.css-1q8luf6[disabled]{background-color:#E1E1E1;cursor:not-allowed;color:#767676;}.css-1q8luf6[loading]{color:#E1E1E1;}.css-1gd5wt3{margin-bottom:24px;}.css-1gd5wt3 .luna-def-number{font-weight:bold;}.css-1gd5wt3 .luna-pronset .luna-pos{font-style:italic;}.css-1gd5wt3 .luna-wud,.css-1gd5wt3 .small-caps{font-variant:small-caps;}.css-1gd5wt3 br{display:block;line-height:200%;}.css-171o2gu{font-size:16px;font-weight:bold;margin:0 0 9px 0;text-transform:uppercase;color:#1A1A1A;display:inline-block;color:#1A1A1A;}.css-1hg9omi{word-break:break-all;}.css-1070kvx{color:#1A1A1A;font-size:16px;line-height:23px;}@media (max-width:768px){.css-1070kvx{font-size:15px;}}.css-1lvxeqw{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}.css-1lvxeqw &gt; *{margin-top:0;margin-bottom:0;-webkit-flex-basis:0;-ms-flex-preferred-size:0;flex-basis:0;-webkit-flex:1;-ms-flex:1;flex:1;}.css-1lvxeqw &gt; #antonyms{margin-left:20px;}@media (max-width:900px){.css-1lvxeqw{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}.css-1lvxeqw &gt; #antonyms{margin-left:0;margin-top:20px;}}.css-wkbkqh{font-size:16px;font-weight:bold;margin:0 0 9px 0;text-transform:uppercase;color:#1A1A1A;}.css-qg3orm{color:#1A1A1A;font-family:Arial;font-size:16px;line-height:23px;margin:8px 0;}.css-qg3orm a{color:#00248B;}.css-qg3orm .luna-def-number{color:#767676;font-weight:normal;content:'36';font-size:14px;height:32px;left:0px;line-height:26px;position:absolute;}.css-qg3orm .luna-list-item{display:list-item;line-height:1.5;list-style:none;margin-top:8px;margin-bottom:4px;padding-left:50px;position:relative;}@media (max-width:768px){.css-qg3orm{font-size:15px;}}.css-164r41r{margin-top:8px;}.css-bhupyz{display:block;font-size:15px;line-height:22px;padding-left:40px;}@media (max-width:768px){.css-bhupyz{padding-left:0px;}}.css-1foc103{margin-bottom:20px;list-style:none;}.css-6xix1i{font-size:16px;}.css-1anzm61{font-size:20px;color:#1A1A1A;line-height:23px;word-break:break-all;}.css-4wm747{position:relative;margin-top:-15px;font-size:10px;color:#4A4A4A;line-height:20px;white-space:pre-line;text-transform:uppercase;}.css-7w6khc{padding-top:20px;}.css-1cli98b{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin:20px 0;}.css-1cli98b &gt; *{-webkit-flex-basis:0;-ms-flex-preferred-size:0;flex-basis:0;-webkit-flex:6;-ms-flex:6;flex:6;margin:0;}.css-1cli98b &gt; *:not(:first-of-type){margin-left:20px;-webkit-flex:4;-ms-flex:4;flex:4;}@media (max-width:1024px){.css-1cli98b{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}.css-1cli98b &gt; *:not(:first-of-type){margin-top:20px;margin-left:0;}}.css-ja4gt7{font-size:16px;padding-top:5px;}.css-cilpq1{padding-top:0;display:inline;font-size:16px;}.css-14189ta-StatelessExpandableWrapper.expandable.content-hidden &gt; .expandable-content{display:none;}.css-14189ta-StatelessExpandableWrapper.expandable.content-expanded &gt; .expandable-content{display:block;}.css-o9b79t{list-style:none;}.css-15poin4{margin-bottom:15px;}.css-1pfxpp4{font-size:15px;line-height:22px;margin-bottom:0;color:#4A4A4A;}.css-k008qs{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-92wkk8{font-size:10px;line-height:17px;text-transform:uppercase;color:#767676;}.css-trql6q{margin:auto;-webkit-text-decoration:none;text-decoration:none;color:#767676;}.css-trql6q:hover{-webkit-text-decoration:underline;text-decoration:underline;}.css-42igfv{margin:auto;}.css-1yluyap{color:#767676;margin:0 5px 0 5px;height:17px;width:1px;}.css-132kvi7{font-family:Arial,sans-serif;text-align:center;font-size:12px;font-weight:300;margin-bottom:-49px;}@media (max-width:768px){.css-132kvi7{margin-bottom:-44px;}}@media (max-width:480px){.css-132kvi7{margin-bottom:-34px;}}.css-132kvi7 button{border:none;outline:none;background:none;}.css-132kvi7 button.message{color:#4A4A4A;}.css-132kvi7 button.message strong{font-weight:inherit;color:#4A4A4A;}.css-132kvi7 button.message:hover{cursor:pointer;}.css-132kvi7 button.message:hover ~ button &gt; span{-webkit-animation:animation-ivawdv 1s 1;animation:animation-ivawdv 1s 1;}.css-132kvi7 button.icon{background:#FFFFFF;border:solid 2px #F3F3F3;border-radius:50%;color:#B6B6B6;font-family:dictionary-fonticon;font-size:17px;height:32px;line-height:0;padding:0;position:relative;text-align:center;width:32px;}.css-132kvi7 button.icon span{display:inline-block;line-height:21px;}.css-132kvi7 button.icon span:hover{cursor:pointer;-webkit-animation:animation-ivawdv 1s 1;animation:animation-ivawdv 1s 1;}.css-132kvi7 button.icon.collapse{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg);}.css-132kvi7 .expandable-button{padding-top:20px;}.css-132kvi7 .expand{display:none;}.css-132kvi7 .collapse{display:inline-block;}.css-132kvi7.collapsed .expand{display:inline-block;}.css-132kvi7.collapsed .collapse{display:none;}@-webkit-keyframes animati</string>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>tag</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="tag_card"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="save_card">
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>HISTORY</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QTabWidget" name="tabWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tab_4">
+           <attribute name="title">
+            <string>ENGLISH</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QTextBrowser" name="history_en">
+              <property name="html">
+               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;PALAVRA &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; color:#cccf00;&quot;&gt;★★☆☆☆&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; color:#8b8b8b;&quot;&gt;21/12 15:22&lt;/span&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;PALAVRA &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; color:#cccf00;&quot;&gt;★★☆☆☆&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; color:#8b8b8b;&quot;&gt;21/12 15:22&lt;/span&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;PALAVRA &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; color:#cccf00;&quot;&gt;★★☆☆☆&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; color:#8b8b8b;&quot;&gt;21/12 15:22&lt;/span&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;PALAVRA &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; color:#cccf00;&quot;&gt;★★☆☆☆&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; color:#8b8b8b;&quot;&gt;21/12 15:22&lt;/span&gt;&lt;/p&gt;
+&lt;hr /&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="QPushButton" name="prev_button">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>prev</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="next_button">
+                 <property name="text">
+                  <string>next</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_3">
+           <attribute name="title">
+            <string>JAPANESE</string>
+           </attribute>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="settings">
+       <attribute name="title">
+        <string>SETTINGS</string>
+       </attribute>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Dictionary (JP)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QComboBox" name="jp_dic">
+          <item>
+           <property name="text">
+            <string>Goo (JP)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Jisho (JP)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Weblio (JP)</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Card Maker (JP)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0" colspan="2">
+         <widget class="QComboBox" name="cm_jp"/>
+        </item>
+        <item row="8" column="0">
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Dictionary (others)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0" colspan="2">
+         <widget class="QComboBox" name="dic">
+          <item>
+           <property name="text">
+            <string>Cambridge (EN)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Dictionary (EN)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Google Translate (EN &gt; PT-BR)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Linguee (EN &gt; PT-BR)</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Card Maker (others)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="14" column="0" colspan="2">
+         <widget class="QComboBox" name="cm"/>
+        </item>
+        <item row="16" column="0">
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="17" column="0">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="18" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="19" column="0" colspan="2">
+         <widget class="QPushButton" name="save_cfg">
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0" colspan="2">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>(need to restart)</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="0" colspan="2">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>(need to restart)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>ABOUT</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QTextBrowser" name="textBrowser">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;content/about_img.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;FlashCopy by &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; color:#d58e00;&quot;&gt;Mega&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:600;&quot;&gt;TWITTER&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;: &lt;/span&gt;&lt;a href=&quot;https://twitter.com/mega_p5&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;MEGA_P5&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt; | &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:600;&quot;&gt;GITHUB&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt;&quot;&gt;: &lt;/span&gt;&lt;a href=&quot;https://github.com/MegaP5&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;MegaP5&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600;&quot;&gt;version 0.1&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:600;&quot;&gt;2020&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="strs">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#f0d342;&quot;&gt;☆☆☆☆☆&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>796</width>
+     <height>19</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header>PyQt5.QtWebEngineWidgets</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../content/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
