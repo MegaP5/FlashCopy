@@ -29,7 +29,7 @@ class UI(QMainWindow):
         self.history = HistoryController()
         self.settings = SettingsController()
 
-        # history
+        # HISROTY
         self.history.history_position_en[0] = self.history.get_rows("EN")
         self.history_en.setText(self.history.history_show(self.history.get_rows("EN")))
         self.next_button.clicked.connect(self.history_next)
@@ -38,13 +38,14 @@ class UI(QMainWindow):
         if(self.history.get_rows("EN") <= 50):
             self.next_button.setEnabled(False)
 
-        # configs
+        # CONFIGS
         self.settings_list = self.settings.get_settings()
 
-        #dictionary
+        # DICTIONARY
         self.cm_jp.addItems(self.dictionary.get_dict_list_jp())
         self.cm.addItems(self.dictionary.get_dict_list_en())
 
+        # LOAD THE DEFAULT DICTIONARY
         try:
             self.jp_dict = importlib.import_module("app_data.dictionary.JP." + self.settings_list[0][1] + ".main")
             self.en_dict = importlib.import_module("app_data.dictionary.EN." + self.settings_list[0][3] + ".main")
@@ -52,7 +53,7 @@ class UI(QMainWindow):
             print("Dictionary not found")
 
 
-        # update values from DB        
+        # SET SETTINGS VALUES
         index0 = self.jp_dic.findText(self.settings_list[0][0], QtCore.Qt.MatchFixedString)
         self.jp_dic.setCurrentIndex(index0)
 
@@ -65,7 +66,7 @@ class UI(QMainWindow):
         index3 = self.cm.findText(self.settings_list[0][3], QtCore.Qt.MatchFixedString)
         self.cm.setCurrentIndex(index3)
 
-        # save values on DB
+        # SAVE VALUES ON DB
         self.save_cfg.clicked.connect(self.save_configs)
         self.dict_web.load(QUrl("https://dictionary.cambridge.org/pt/"))
         self.save_card.clicked.connect(self.save_card_clicked)
@@ -74,15 +75,21 @@ class UI(QMainWindow):
         QApplication.clipboard().dataChanged.connect(self.clipboardChanged)
         self.show()
 
-        # about
+        # ABOUT
         self.textBrowser.setOpenExternalLinks(True)
 
+
     def save_card_clicked(self):
+
+        # SAVE CARD
         self.card_maker.s_card()
+        # TURN OFF THE SAVE BUTTON
         self.save_card.setEnabled(False)
 
 
     def save_configs(self):
+
+        #SAVE ALL SETTINGS
         self.settings.set_settings(
         self.jp_dic.currentText(), 
         self.cm_jp.currentText(), 
@@ -186,8 +193,8 @@ class UI(QMainWindow):
         self.raise_()
 
 
-    def history_prev(self):        
-        #history_size = db.history_rows("EN")          
+    def history_prev(self):
+         
         self.history.history_position_en[0] = self.history.history_position_en[0] + 50
 
         if(self.history.history_position_en[0] >= self.history.get_rows("EN")):
