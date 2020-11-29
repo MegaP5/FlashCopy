@@ -4,6 +4,11 @@ settings.db
 Pipfile
 *.txt
 
+app_data/dictionary/EN/
+app_data/dictionary/JP/
+!dictionary/EN/None/
+!dictionary/JP/None/
+
 __pycache__/
 *.py[cod]
 *$py.class
