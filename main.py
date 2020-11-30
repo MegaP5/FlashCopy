@@ -29,7 +29,7 @@ class UI(QMainWindow):
         self.settings = SettingsController()
         self.clipboard = ClipboardController()
 
-        # HISROTY
+        # HISTORY
         self.history.history_position_en[0] = self.history.get_rows("EN")
         self.history_en.setText(self.history.history_show(self.history.get_rows("EN")))
         self.next_button.clicked.connect(self.history_next)
@@ -38,7 +38,7 @@ class UI(QMainWindow):
         if(self.history.get_rows("EN") <= 50):
             self.next_button.setEnabled(False)
 
-        # CONFIGS
+        # SETTINGS
         self.settings_list = self.settings.get_settings()
 
         # DICTIONARY
@@ -95,14 +95,14 @@ class UI(QMainWindow):
         url = self.dictionary.get_dict_url(language, word)
         self.dict_web.load(QUrl(url))           
         self.front_card.setText(word)
-        self.back_card.setText(f"<center><br/><h2>{stars}<h2></center>{b_card}")
+        self.back_card.setText(f"<center><br/><h2>{self.history.stars_show(stars)}<h2></center>{b_card}")
         self.tag_card.setText(tag)
-        self.strs.setText(f"<html><head/><body><p><span style=' color:#f0d342;'>{stars}</span></p></body></html>")
+        self.strs.setText(f"<html><head/><body><p><span style=' color:#f0d342;'>{self.history.stars_show(stars)}</span></p></body></html>")
 
         self.card_maker.front = word
         self.card_maker.back = b_card
         self.card_maker.tag = tag
-        self.card_maker.stars = stars
+        self.card_maker.stars = self.history.stars_show(stars)
         if language == "EN":
             self.card_maker.deck = [language, self.settings_list[0][3]]
         elif language == "JP":

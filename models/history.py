@@ -16,7 +16,7 @@ class History:
         CREATE TABLE IF NOT EXISTS "history_en" (
             "id_word"	INTEGER NOT NULL UNIQUE,
             "word"	VARCHAR(40) NOT NULL,
-            "stars"	VARCHAR(5) NOT NULL,
+            "stars"	INTEGER NOT NULL,
             "datetime"	timestamp NOT NULL,
             PRIMARY KEY("id_word")
             )''')
