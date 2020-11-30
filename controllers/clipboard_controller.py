@@ -63,14 +63,15 @@ class ClipboardController:
 
                 return edited_clipboard, b_card[0], edited_clipboard, stars, "EN"
 
-
-
     
 
     def clipboard_edit(self, word):
 
         word = word.lower()
         word = word.replace('\n', '')
-        word = re.sub('\W+','', word)
+        word_re = re.sub('[!,*)@#%(&$_?.^]', '', word)
+
+        if word_re != "":
+            word = word_re
 
         return word

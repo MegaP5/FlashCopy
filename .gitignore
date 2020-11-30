@@ -3,6 +3,8 @@ history.db
 settings.db
 Pipfile
 *.txt
+teste.py
+test.py
 
 app_data/dictionary/EN/
 app_data/dictionary/JP/
