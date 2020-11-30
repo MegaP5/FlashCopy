@@ -6,6 +6,8 @@ from PyQt5.QtWebEngineWidgets import *
 import tkinter
 import sys
 import importlib
+import requests
+from bs4 import BeautifulSoup
 
 # CONTROLLERS
 from controllers.card_maker_controller import CardMakerController

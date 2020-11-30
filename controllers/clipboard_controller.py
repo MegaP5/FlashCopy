@@ -63,7 +63,7 @@ class ClipboardController:
 
                 return edited_clipboard, b_card[0], edited_clipboard, stars, "EN"
 
-    
+
 
     def clipboard_edit(self, word):
 
