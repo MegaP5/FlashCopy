@@ -11,5 +11,5 @@ class SettingsController:
     def get_settings(self):
         return self.settings.get_settings()
 
-    def set_settings(self, dict_jp, cm_jp, dict_en, cm_en):
-        self.settings.set_settings(dict_jp, cm_jp, dict_en, cm_en)
+    def set_settings(self, dict_jp, cm_jp, dict_en, cm_en, theme):
+        self.settings.set_settings(dict_jp, cm_jp, dict_en, cm_en, theme)

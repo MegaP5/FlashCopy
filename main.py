@@ -22,6 +22,7 @@ class UI(QMainWindow):
         super(UI, self).__init__()
         uic.loadUi("views/app.ui", self)
 
+        
         # CONTROLLERS
         self.card_maker = CardMakerController()
         self.dictionary = DictionaryController()
@@ -63,6 +64,12 @@ class UI(QMainWindow):
         index3 = self.cm.findText(self.settings_list[0][3], QtCore.Qt.MatchFixedString)
         self.cm.setCurrentIndex(index3)
 
+        index4 = self.theme_box.findText(self.settings_list[0][4], QtCore.Qt.MatchFixedString)
+        self.theme_box.setCurrentIndex(index4)
+
+        # DEFAULT THEME
+        self.setStyleSheet(open('content/themes/' + self.theme_box.currentText() + '.css').read())
+
         # SAVE VALUES ON DB
         self.save_cfg.clicked.connect(self.save_configs)
         self.dict_web.load(QUrl("https://dictionary.cambridge.org/pt/"))
@@ -91,7 +98,9 @@ class UI(QMainWindow):
         self.jp_dic.currentText(), 
         self.cm_jp.currentText(), 
         self.dic.currentText(), 
-        self.cm.currentText())
+        self.cm.currentText(),
+        self.theme_box.currentText())
+        self.setStyleSheet(open('content/themes/' + self.theme_box.currentText() + '.css').read())
 
 
     def update_gui(self, word, b_card, tag, stars, language):
@@ -102,6 +111,7 @@ class UI(QMainWindow):
         self.back_card.setText(f"<center><br/><h2>{self.history.stars_show(stars)}<h2></center>{b_card}")
         self.tag_card.setText(tag)
         self.strs.setText(f"<html><head/><body><p><span style=' color:#f0d342;'>{self.history.stars_show(stars)}</span></p></body></html>")
+
 
         self.card_maker.front = word
         self.card_maker.back = b_card
@@ -149,7 +159,7 @@ class UI(QMainWindow):
             self.prev_button.setEnabled(False)
             if(self.history.get_rows("EN") <= 50):
                 self.next_button.setEnabled(False)                
-            self.history_en.setText(self.history.history_show(self.history.get_rows("EN"), self.word_sort, self.word_filter))
+            self.history_en.setText(self.history.history_show(self.history.get_rows("EN"), self.sort_box.currentText(), self.filter_box.currentText()))
             self.save_card.setEnabled(True)
 
 
@@ -183,7 +193,7 @@ class UI(QMainWindow):
         else:
             self.next_button.setEnabled(False)
 
-        self.history_en.setText(self.history.history_show(self.history.history_position_en[0]))
+        self.history_en.setText(self.history.history_show(self.history.history_position_en[0], self.sort_box.currentText(), self.filter_box.currentText()))
 
     def history_next(self):
 
@@ -200,10 +210,11 @@ class UI(QMainWindow):
         else:
             self.prev_button.setEnabled(True)
 
-        self.history_en.setText(self.history.history_show(self.history.history_position_en[0]))
+        self.history_en.setText(self.history.history_show(self.history.history_position_en[0], self.sort_box.currentText(), self.filter_box.currentText()))
 
-    
 app = QApplication(sys.argv)
+
+
 
 web = QWebEngineView()
 

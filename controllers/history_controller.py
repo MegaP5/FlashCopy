@@ -49,5 +49,10 @@ class HistoryController:
         self.history.set_history(word, stars, language)
 
     def stars_show(self, stars):
+
         stars_list = ["☆☆☆☆☆", '★☆☆☆☆', '★★☆☆☆', '★★★☆☆', '★★★★☆', '★★★★★']
-        return stars_list[stars]
+
+        if type(stars) == int:            
+            return stars_list[stars]
+        else:
+            return stars_list[0]

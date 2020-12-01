@@ -12,7 +12,8 @@ class Settings:
                 "dict_jp"	VARCHAR(30) NOT NULL UNIQUE,
                 "cm_jp"	VARCHAR(30) NOT NULL UNIQUE,
                 "dict_en"	VARCHAR(30) NOT NULL UNIQUE,
-                "cm_en"	VARCHAR(30) NOT NULL UNIQUE
+                "cm_en"	VARCHAR(30) NOT NULL UNIQUE,
+                "theme"	VARCHAR(30) NOT NULL UNIQUE
                 )''')  
         except sqlite3.Error as error:
             print("Update sqlite error", error)
@@ -23,8 +24,8 @@ class Settings:
         if self.cursor.fetchone():
             return
         else:
-            self.cursor.execute("""INSERT INTO settings (dict_jp, cm_jp, dict_en, cm_en) 
-            VALUES ("Jisho (JP)", "None", "Cambridge (EN)", "None")""")
+            self.cursor.execute("""INSERT INTO settings (dict_jp, cm_jp, dict_en, cm_en, theme) 
+            VALUES ("Jisho (JP)", "None", "Cambridge (EN)", "None", "ManjaroMix")""")
             self.conn.commit()
 
 
@@ -32,8 +33,8 @@ class Settings:
         self.cursor.execute("""SELECT * FROM settings""")
         return self.cursor.fetchall()
 
-    def set_settings(self, dict_jp, cm_jp, dict_en, cm_en):
+    def set_settings(self, dict_jp, cm_jp, dict_en, cm_en, theme):
         self.cursor.execute("""DELETE FROM settings""")
-        self.cursor.execute("""INSERT INTO settings (dict_jp, cm_jp, dict_en, cm_en) 
-        VALUES (?, ?, ?, ?)""", (dict_jp, cm_jp, dict_en, cm_en, ))
+        self.cursor.execute("""INSERT INTO settings (dict_jp, cm_jp, dict_en, cm_en, theme) 
+        VALUES (?, ?, ?, ?, ?)""", (dict_jp, cm_jp, dict_en, cm_en, theme))
         self.conn.commit()
