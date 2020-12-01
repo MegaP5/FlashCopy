@@ -31,9 +31,9 @@ class History:
             self.cursor.execute("""INSERT INTO history_en (word, stars, datetime) VALUES (?, ?, ?)""", (word, stars, timestamp))
             self.conn.commit()
 
-    def history_get(self, first, last, language):
+    def history_get(self, sql_string, language):
         if language == "EN":
-            self.cursor.execute("""SELECT * FROM history_en WHERE id_word BETWEEN (?) AND (?) ORDER BY id_word DESC""", (first, last, ))
+            self.cursor.execute(sql_string)
             return self.cursor.fetchall()
 
     def history_rows(self, language):

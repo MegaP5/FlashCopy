@@ -553,13 +553,16 @@ a {
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
      <widget class="QTabWidget" name="configs">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="font">
        <font>
         <pointsize>9</pointsize>
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="dict">
        <attribute name="title">
@@ -948,6 +951,9 @@ p, li { white-space: pre-wrap; }
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <widget class="QTabWidget" name="tabWidget">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -956,6 +962,159 @@ p, li { white-space: pre-wrap; }
             <string>ENGLISH</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QFrame" name="history_configs">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QFrame" name="frame_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>28</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QLabel" name="label_10">
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>sort by</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="sort_box">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(46, 52, 54);
+</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>last</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>first</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frame_3">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_4">
+                  <item>
+                   <widget class="QLabel" name="label_11">
+                    <property name="maximumSize">
+                     <size>
+                      <width>70</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>stars filter</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="filter_box">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(46, 52, 54);</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>-</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>★★★★★</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>★★★★☆</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>★★★☆☆</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>★★☆☆☆</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>★☆☆☆☆</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>☆☆☆☆☆</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="history_button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>36</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>save</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
             <item>
              <widget class="QTextBrowser" name="history_en">
               <property name="html">
@@ -1042,6 +1201,10 @@ p, li { white-space: pre-wrap; }
         </item>
         <item row="2" column="0" colspan="2">
          <widget class="QComboBox" name="jp_dic">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(46, 52, 54);
+</string>
+          </property>
           <item>
            <property name="text">
             <string>Goo (JP)</string>
@@ -1067,7 +1230,12 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
         <item row="6" column="0" colspan="2">
-         <widget class="QComboBox" name="cm_jp"/>
+         <widget class="QComboBox" name="cm_jp">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(46, 52, 54);
+</string>
+          </property>
+         </widget>
         </item>
         <item row="8" column="0">
          <spacer name="horizontalSpacer_4">
@@ -1091,6 +1259,10 @@ p, li { white-space: pre-wrap; }
         </item>
         <item row="10" column="0" colspan="2">
          <widget class="QComboBox" name="dic">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(46, 52, 54);
+</string>
+          </property>
           <item>
            <property name="text">
             <string>Cambridge (EN)</string>
@@ -1121,7 +1293,12 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
         <item row="14" column="0" colspan="2">
-         <widget class="QComboBox" name="cm"/>
+         <widget class="QComboBox" name="cm">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(46, 52, 54);
+</string>
+          </property>
+         </widget>
         </item>
         <item row="16" column="0">
          <spacer name="horizontalSpacer_5">

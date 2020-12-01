@@ -31,7 +31,11 @@ class UI(QMainWindow):
 
         # HISTORY
         self.history.history_position_en[0] = self.history.get_rows("EN")
-        self.history_en.setText(self.history.history_show(self.history.get_rows("EN")))
+        self.history_en.setText(self.history.history_show(
+        self.history.get_rows("EN"),
+        self.sort_box.currentText(), 
+        self.filter_box.currentText()))
+        self.history_button.clicked.connect(self.history_settings_get)
         self.next_button.clicked.connect(self.history_next)
         self.prev_button.clicked.connect(self.history_prev)
 
@@ -145,7 +149,7 @@ class UI(QMainWindow):
             self.prev_button.setEnabled(False)
             if(self.history.get_rows("EN") <= 50):
                 self.next_button.setEnabled(False)                
-            self.history_en.setText(self.history.history_show(self.history.get_rows("EN")))
+            self.history_en.setText(self.history.history_show(self.history.get_rows("EN"), self.word_sort, self.word_filter))
             self.save_card.setEnabled(True)
 
 
@@ -156,6 +160,14 @@ class UI(QMainWindow):
         self.setWindowState(window.windowState() & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
         self.activateWindow()
         self.raise_()
+
+    
+    def history_settings_get(self):        
+        
+        self.history_en.setText(
+        self.history.history_show(self.history.get_rows("EN"), 
+        self.sort_box.currentText(), 
+        self.filter_box.currentText()))
 
 
     def history_prev(self):
