@@ -9,7 +9,9 @@ class History:
 
         self.create_table_en()
 
-        self.history_position_en = [self.history_rows("EN"),self.history_rows("EN")]
+        self.history_position_en = [
+        self.history_rows("EN", """SELECT COUNT(*) FROM history_en"""),
+        self.history_rows("EN", """SELECT COUNT(*) FROM history_en""")]
 
     def create_table_en(self):
         self.cursor.execute('''
@@ -36,7 +38,7 @@ class History:
             self.cursor.execute(sql_string)
             return self.cursor.fetchall()
 
-    def history_rows(self, language):
+    def history_rows(self, language, sql_string):
         if language == "EN":
-            self.cursor.execute("""SELECT COUNT(*) FROM history_en""")
+            self.cursor.execute(sql_string)
             return self.cursor.fetchall()[0][0]

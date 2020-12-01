@@ -31,52 +31,66 @@ class UI(QMainWindow):
         self.clipboard = ClipboardController()
 
         # HISTORY
-        self.history.history_position_en[0] = self.history.get_rows("EN")
-        self.history_en.setText(self.history.history_show(
-        self.history.get_rows("EN"),
+        self.history.history_position_en[0] = self.history.get_rows("EN", "last", "-")        
+        self.history_en.setText(
+        self.history.history_show(
+        self.history.history_position_en[0],
         self.sort_box.currentText(), 
         self.filter_box.currentText()))
-        self.history_button.clicked.connect(self.history_settings_get)
-        self.next_button.clicked.connect(self.history_next)
-        self.prev_button.clicked.connect(self.history_prev)
+        self.history_button.clicked.connect(
+        self.history_settings_get)
+        self.next_button.clicked.connect(
+        self.history_next)
+        self.prev_button.clicked.connect(
+        self.history_prev)
 
-        if(self.history.get_rows("EN") <= 50):
+        if(self.history.history_position_en[0] <= 50):
             self.next_button.setEnabled(False)
 
         # SETTINGS
         self.settings_list = self.settings.get_settings()
 
         # DICTIONARY
-        self.cm_jp.addItems(self.dictionary.get_dict_list_jp())
-        self.cm.addItems(self.dictionary.get_dict_list_en())
-
+        self.cm_jp.addItems(
+        self.dictionary.get_dict_list_jp())
+        self.cm.addItems(
+        self.dictionary.get_dict_list_en())
 
         # SET SETTINGS VALUES
-        index0 = self.jp_dic.findText(self.settings_list[0][0], QtCore.Qt.MatchFixedString)
+        index0 = self.jp_dic.findText(
+        self.settings_list[0][0], QtCore.Qt.MatchFixedString)
         self.jp_dic.setCurrentIndex(index0)
 
-        index1 = self.cm_jp.findText(self.settings_list[0][1], QtCore.Qt.MatchFixedString)
+        index1 = self.cm_jp.findText(
+        self.settings_list[0][1], QtCore.Qt.MatchFixedString)
         self.cm_jp.setCurrentIndex(index1)
 
-        index2 = self.dic.findText(self.settings_list[0][2], QtCore.Qt.MatchFixedString)
+        index2 = self.dic.findText(
+        self.settings_list[0][2], QtCore.Qt.MatchFixedString)
         self.dic.setCurrentIndex(index2)
 
-        index3 = self.cm.findText(self.settings_list[0][3], QtCore.Qt.MatchFixedString)
+        index3 = self.cm.findText(
+        self.settings_list[0][3], QtCore.Qt.MatchFixedString)
         self.cm.setCurrentIndex(index3)
 
-        index4 = self.theme_box.findText(self.settings_list[0][4], QtCore.Qt.MatchFixedString)
+        index4 = self.theme_box.findText(
+        self.settings_list[0][4], QtCore.Qt.MatchFixedString)
         self.theme_box.setCurrentIndex(index4)
 
         # DEFAULT THEME
-        self.setStyleSheet(open('content/themes/' + self.theme_box.currentText() + '.css').read())
+        self.setStyleSheet(open('content/themes/' + 
+        self.theme_box.currentText() + '.css').read())
 
         # SAVE VALUES ON DB
-        self.save_cfg.clicked.connect(self.save_configs)
+        self.save_cfg.clicked.connect(
+        self.save_configs)
         self.dict_web.load(QUrl("https://dictionary.cambridge.org/pt/"))
-        self.save_card.clicked.connect(self.save_card_clicked)
+        self.save_card.clicked.connect(
+        self.save_card_clicked)
         self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)     
 
-        QApplication.clipboard().dataChanged.connect(self.clipboardChanged)
+        QApplication.clipboard().dataChanged.connect(
+        self.clipboardChanged)
         self.show()
 
         # ABOUT
@@ -100,7 +114,8 @@ class UI(QMainWindow):
         self.dic.currentText(), 
         self.cm.currentText(),
         self.theme_box.currentText())
-        self.setStyleSheet(open('content/themes/' + self.theme_box.currentText() + '.css').read())
+        self.setStyleSheet(open('content/themes/' + 
+        self.theme_box.currentText() + '.css').read())
 
 
     def update_gui(self, word, b_card, tag, stars, language):
@@ -108,10 +123,11 @@ class UI(QMainWindow):
         url = self.dictionary.get_dict_url(language, word)
         self.dict_web.load(QUrl(url))           
         self.front_card.setText(word)
-        self.back_card.setText(f"<center><br/><h2>{self.history.stars_show(stars)}<h2></center>{b_card}")
+        self.back_card.setText(
+        f"<center><br/><h2>{self.history.stars_show(stars)}<h2></center>{b_card}")
         self.tag_card.setText(tag)
-        self.strs.setText(f"<html><head/><body><p><span style=' color:#f0d342;'>{self.history.stars_show(stars)}</span></p></body></html>")
-
+        self.strs.setText(
+        f"<html><head/><body><p><span style=' color:#f0d342;'>{self.history.stars_show(stars)}</span></p></body></html>")
 
         self.card_maker.front = word
         self.card_maker.back = b_card
@@ -126,9 +142,12 @@ class UI(QMainWindow):
     def gui_clean(self):
 
         self.save_card.setEnabled(True)
-        self.front_card.setText(self.card_maker.front)
-        self.back_card.setText(f"<center><br/><h2>{self.stars}<h2></center>{self.card_maker.back}")
-        self.tag_card.setText(self.card_maker.tag)
+        self.front_card.setText(
+        self.card_maker.front)
+        self.back_card.setText(
+        f"<center><br/><h2>{self.stars}<h2></center>{self.card_maker.back}")
+        self.tag_card.setText(
+        self.card_maker.tag)
         self.strs.setText(f"<html><head/><body><p><span style=' color:#f0d342;'>{self.card_maker.stars}</span></p></body></html>")
 
 
@@ -155,19 +174,25 @@ class UI(QMainWindow):
                 self.history.set_history(gui_data[0], gui_data[3], "EN")
                 self.card_maker.last_word = gui_data[0]
 
-            self.history.history_position_en[0] = self.history.get_rows("EN")
+            self.history.history_position_en[0] = self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText())
             self.prev_button.setEnabled(False)
-            if(self.history.get_rows("EN") <= 50):
+            if(self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()) <= 50):
                 self.next_button.setEnabled(False)                
-            self.history_en.setText(self.history.history_show(self.history.get_rows("EN"), self.sort_box.currentText(), self.filter_box.currentText()))
+            self.history_en.setText(
+            self.history.history_show(
+            self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()), 
+            self.sort_box.currentText(), 
+            self.filter_box.currentText()))
             self.save_card.setEnabled(True)
 
 
     def closeEvent(self, event):
         event.accept()
 
+
     def focusOutEvent(self, event):
-        self.setWindowState(window.windowState() & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
+        self.setWindowState(
+        window.windowState() & ~QtCore.Qt.WindowMinimized | QtCore.Qt.WindowActive)
         self.activateWindow()
         self.raise_()
 
@@ -175,17 +200,25 @@ class UI(QMainWindow):
     def history_settings_get(self):        
         
         self.history_en.setText(
-        self.history.history_show(self.history.get_rows("EN"), 
+        self.history.history_show(
+        self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()), 
         self.sort_box.currentText(), 
         self.filter_box.currentText()))
+        
+        self.history.history_position_en[0] = self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText())
+        self.prev_button.setEnabled(False)
+        if(self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()) <= 50):
+            self.next_button.setEnabled(False)
+        else:
+            self.next_button.setEnabled(True)
 
 
     def history_prev(self):
          
         self.history.history_position_en[0] = self.history.history_position_en[0] + 50
 
-        if(self.history.history_position_en[0] >= self.history.get_rows("EN")):
-            self.history.history_position_en[0] = self.history.get_rows("EN")
+        if(self.history.history_position_en[0] >= self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText())):
+            self.history.history_position_en[0] = self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText())
             self.prev_button.setEnabled(False)
 
         if self.history.history_position_en[0] - 50 >= 0:
@@ -193,7 +226,12 @@ class UI(QMainWindow):
         else:
             self.next_button.setEnabled(False)
 
-        self.history_en.setText(self.history.history_show(self.history.history_position_en[0], self.sort_box.currentText(), self.filter_box.currentText()))
+        self.history_en.setText(
+        self.history.history_show(
+        self.history.history_position_en[0], 
+        self.sort_box.currentText(), 
+        self.filter_box.currentText()))
+
 
     def history_next(self):
 
@@ -205,12 +243,16 @@ class UI(QMainWindow):
         if self.history.history_position_en[0] <= 0:
             self.history.history_position_en[0] = 0
 
-        if self.history.history_position_en[0] + 50 >= self.history.get_rows("EN"):
+        if self.history.history_position_en[0] + 50 >= self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()):
             self.prev_button.setEnabled(True)
         else:
             self.prev_button.setEnabled(True)
 
-        self.history_en.setText(self.history.history_show(self.history.history_position_en[0], self.sort_box.currentText(), self.filter_box.currentText()))
+        self.history_en.setText(
+        self.history.history_show(
+        self.history.history_position_en[0], 
+        self.sort_box.currentText(), 
+        self.filter_box.currentText()))
 
 app = QApplication(sys.argv)
 
