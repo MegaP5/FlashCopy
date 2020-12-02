@@ -34,6 +34,9 @@ class History:
             self.conn.commit()
 
     def history_get(self, sql_string, language):
+
+        print(sql_string)
+
         if language == "EN":
             self.cursor.execute(sql_string)
             return self.cursor.fetchall()
