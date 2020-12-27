@@ -5,6 +5,8 @@ Pipfile
 *.txt
 teste.py
 test.py
+.vscode
+
 
 app_data/dictionary/EN/
 app_data/dictionary/JP/

@@ -36,12 +36,20 @@ class Dictionary:
             self.cursor.execute("""INSERT INTO dict_en (name, type, src) VALUES ("Dictionary (EN)", "web", "https://www.dictionary.com/browse/{word}?s=t")""")
             self.cursor.execute("""INSERT INTO dict_en (name, type, src) VALUES ("Google Translate (EN > PT-BR)", "web", "https://translate.google.com.br/?hl=pt-BR&tab=wT&sl=en&tl=pt&text={word}%0A&op=translate")""")
             self.cursor.execute("""INSERT INTO dict_en (name, type, src) VALUES ("Linguee (EN > PT-BR)", "web", "https://www.linguee.com.br/portugues-ingles/search?source=ingles&query={word}")""")
+            self.cursor.execute("""INSERT INTO dict_en (name, type, src) VALUES ("Oxford Languages (EN)", "web", "https://www.google.com/search?source=hp&ei=9XPIX6uZB4C05OUPpOO80AY&q=definition {word}")""")
             self.conn.commit()
 
 
     def get_url(self, name, language):
+        conn = sqlite3.connect('app_data/dictionary.db')
+        cursor = conn.cursor()
         if language == "JP":
-            self.cursor.execute("""SELECT * FROM dict_jp WHERE name=(?)""", (name, ))
+            cursor.execute("""SELECT * FROM dict_jp WHERE name=(?)""", (name, ))
         elif language == "EN":
-            self.cursor.execute("""SELECT * FROM dict_en WHERE name=(?)""", (name, ))
-        return self.cursor.fetchall()[0][2]
+            cursor.execute("""SELECT * FROM dict_en WHERE name=(?)""", (name, ))
+
+        url = cursor.fetchall()[0][2]
+        conn.close()
+        print(url)
+
+        return url

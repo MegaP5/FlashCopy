@@ -42,5 +42,4 @@ class DictionaryController:
             name = self.settings.get_settings()[0][2]
         else:
             return "https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=en&text=" + word
-            
         return self.dictionary.get_url(name, language).replace("{word}", word)

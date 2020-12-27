@@ -30,8 +30,12 @@ class Settings:
 
 
     def get_settings(self):
-        self.cursor.execute("""SELECT * FROM settings""")
-        return self.cursor.fetchall()
+        conn = sqlite3.connect('app_data/settings.db')
+        cursor = conn.cursor()
+        cursor.execute("""SELECT * FROM settings""")
+        settings = cursor.fetchall()
+        conn.close()
+        return settings
 
     def set_settings(self, dict_jp, cm_jp, dict_en, cm_en, theme):
         self.cursor.execute("""DELETE FROM settings""")

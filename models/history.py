@@ -28,20 +28,28 @@ class History:
 
         now = datetime.now()
         timestamp = datetime.timestamp(now)
+        conn = sqlite3.connect('app_data/history.db')
+        cursor = conn.cursor()
 
         if language == "EN":
-            self.cursor.execute("""INSERT INTO history_en (word, stars, datetime) VALUES (?, ?, ?)""", (word, stars, timestamp))
-            self.conn.commit()
+            cursor.execute("""INSERT INTO history_en (word, stars, datetime) VALUES (?, ?, ?)""", (word, stars, timestamp))
+            conn.commit()
+        conn.close()
 
     def history_get(self, sql_string, language):
 
-        print(sql_string)
 
         if language == "EN":
             self.cursor.execute(sql_string)
             return self.cursor.fetchall()
 
     def history_rows(self, language, sql_string):
+
+        conn = sqlite3.connect('app_data/history.db')
+        cursor = conn.cursor()
+
         if language == "EN":
-            self.cursor.execute(sql_string)
-            return self.cursor.fetchall()[0][0]
+            cursor.execute(sql_string)
+            history = cursor.fetchall()[0][0]
+            conn.close()
+            return history

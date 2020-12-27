@@ -1,34 +1,51 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import uic, QtCore
-from PyQt5.Qt import *
-from PyQt5.QtWebEngineWidgets import *
+from PyQt5.Qt import Qt, QIcon, QSystemTrayIcon, QMenu, QAction, QUrl
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtWidgets import QDialog, QApplication, QPushButton, QVBoxLayout, QMainWindow
 
-import tkinter
+
+import random
 import sys
+import tkinter
 import importlib
 import requests
 from bs4 import BeautifulSoup
+
+from pynput.keyboard import HotKey, Key, KeyCode, Listener
+
 
 # CONTROLLERS
 from controllers.card_maker_controller import CardMakerController
 from controllers.dictionary_controller import DictionaryController
 from controllers.history_controller import HistoryController
 from controllers.settings_controller import SettingsController
-from controllers.clipboard_controller import ClipboardController
+#from controllers.clipboard_controller import ClipboardController
+from controllers.keyboard_controller import KeyboardController
 
 
-class UI(QMainWindow):
+class MainWindow(QMainWindow):
     def __init__(self):
-        super(UI, self).__init__()
+        super(MainWindow, self).__init__()
         uic.loadUi("views/app.ui", self)
 
-        
+
         # CONTROLLERS
         self.card_maker = CardMakerController()
         self.dictionary = DictionaryController()
         self.history = HistoryController()
         self.settings = SettingsController()
-        self.clipboard = ClipboardController()
+        #self.clipboard = ClipboardController()
+        self.keyboard = KeyboardController()
+
+        #KEYBOARD
+        #self.keyboard.keyPressed.connect(print)        
+        self.keyboard.start()
+        self.keyboard.front_value.connect(self.set_front)        
+        self.keyboard.back_value.connect(self.set_back)
+        self.keyboard.tag_value.connect(self.set_tag)
+        self.keyboard.auto_fill.connect(self.update_gui)
+        
+       
 
         # HISTORY
         self.history.history_position_en[0] = self.history.get_rows("EN", "last", "-")        
@@ -49,6 +66,12 @@ class UI(QMainWindow):
 
         # SETTINGS
         self.settings_list = self.settings.get_settings()
+
+        # HOTKEYS
+        self.fill_key_b.setMaxLength(1)
+        self.front_key_b.setMaxLength(1)
+        self.back_key_b.setMaxLength(1)
+        self.tag_key_b.setMaxLength(1)
 
         # DICTIONARY
         self.cm_jp.addItems(
@@ -89,12 +112,24 @@ class UI(QMainWindow):
         self.save_card_clicked)
         self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)     
 
-        QApplication.clipboard().dataChanged.connect(
-        self.clipboardChanged)
+        #QApplication.clipboard().dataChanged.connect(
+        #self.clipboardChanged)
         self.show()
 
         # ABOUT
         self.textBrowser.setOpenExternalLinks(True)
+
+
+    def set_tag(self, val):
+        self.tag_card.setText(val)
+
+
+    def set_back(self, val):
+        self.back_card.setText(val)
+
+
+    def set_front(self, val):
+        self.front_card.setText(val)
 
 
     def save_card_clicked(self):
@@ -120,15 +155,20 @@ class UI(QMainWindow):
 
     def update_gui(self, word, b_card, tag, stars, language):
 
+        self.focusOutEvent(QApplication)
+
         url = self.dictionary.get_dict_url(language, word)
-        self.dict_web.load(QUrl(url))           
+
+        self.dict_web.load(QUrl(url))
         self.front_card.setText(word)
+
         self.back_card.setText(
         f"<center><br/><h2>{self.history.stars_show(stars)}<h2></center>{b_card}")
+        
         self.tag_card.setText(tag)
+
         self.strs.setText(
         f"<html><head/><body><p><span style=' color:#f0d342;'>{self.history.stars_show(stars)}</span></p></body></html>")
-
         self.card_maker.front = word
         self.card_maker.back = b_card
         self.card_maker.tag = tag
@@ -137,6 +177,24 @@ class UI(QMainWindow):
             self.card_maker.deck = [language, self.settings_list[0][3]]
         elif language == "JP":
             self.card_maker.deck = [language, self.settings_list[0][1]]
+
+
+        if language == "EN":
+                
+            if word != self.card_maker.last_word:
+                self.history.set_history(word, stars, "EN")
+                self.card_maker.last_word = word
+
+            self.history.history_position_en[0] = self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText())
+            self.prev_button.setEnabled(False)
+            if(self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()) <= 50):
+                self.next_button.setEnabled(False)                
+            self.history_en.setText(
+            self.history.history_show(
+            self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()), 
+            self.sort_box.currentText(), 
+            self.filter_box.currentText()))
+            self.save_card.setEnabled(True)
 
 
     def gui_clean(self):
@@ -149,41 +207,6 @@ class UI(QMainWindow):
         self.tag_card.setText(
         self.card_maker.tag)
         self.strs.setText(f"<html><head/><body><p><span style=' color:#f0d342;'>{self.card_maker.stars}</span></p></body></html>")
-
-
-    def clipboardChanged(self):
-
-        #q_text = QApplication.clipboard().text()
-        self.focusOutEvent(QApplication)
-
-        try:
-            cp = QApplication.clipboard().text()
-        except:
-            try:
-                cp = tkinter.Tk().clipboard_get()
-            except tkinter.TclError:
-                gui_data = ["", "", "", "", ""]
-
-        gui_data = self.clipboard.clipboard_check(cp)
-
-        self.update_gui(gui_data[0], gui_data[1], gui_data[2], gui_data[3], gui_data[4])
-
-        if gui_data[4] == "EN":
-                
-            if gui_data[0] != self.card_maker.last_word:
-                self.history.set_history(gui_data[0], gui_data[3], "EN")
-                self.card_maker.last_word = gui_data[0]
-
-            self.history.history_position_en[0] = self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText())
-            self.prev_button.setEnabled(False)
-            if(self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()) <= 50):
-                self.next_button.setEnabled(False)                
-            self.history_en.setText(
-            self.history.history_show(
-            self.history.get_rows("EN", self.sort_box.currentText(), self.filter_box.currentText()), 
-            self.sort_box.currentText(), 
-            self.filter_box.currentText()))
-            self.save_card.setEnabled(True)
 
 
     def closeEvent(self, event):
@@ -256,8 +279,6 @@ class UI(QMainWindow):
 
 app = QApplication(sys.argv)
 
-
-
 web = QWebEngineView()
 
 icon = QIcon("content/icon.ico")
@@ -275,5 +296,5 @@ menu.addAction(quit)
 
 tray.setContextMenu(menu)
 
-window = UI()
+window = MainWindow()
 app.exec_()
