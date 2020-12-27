@@ -29,7 +29,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="dict">
        <attribute name="title">
@@ -45,7 +45,7 @@
        <attribute name="title">
         <string>CARD MAKER</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QVBoxLayout" name="verticalLayout_16">
         <item>
          <widget class="QLabel" name="label">
           <property name="maximumSize">
@@ -60,101 +60,104 @@
          </widget>
         </item>
         <item>
-         <widget class="QSplitter" name="splitter_8">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <widget class="QLineEdit" name="front_card">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pushButton">
-           <property name="minimumSize">
-            <size>
-             <width>30</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>30</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <italic>false</italic>
-             <bold>true</bold>
-             <underline>true</underline>
-             <strikeout>false</strikeout>
-             <kerning>true</kerning>
-            </font>
-           </property>
-           <property name="text">
-            <string>B</string>
-           </property>
-          </widget>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_14">
+          <item>
+           <widget class="QLineEdit" name="front_card">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>30</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+              <underline>true</underline>
+              <strikeout>false</strikeout>
+              <kerning>true</kerning>
+             </font>
+            </property>
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QSplitter" name="splitter_9">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <widget class="QLabel" name="label_2">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>back</string>
-           </property>
-          </widget>
-          <widget class="QTextEdit" name="back_card">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>500</height>
-            </size>
-           </property>
-           <property name="acceptDrops">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>back</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="back_card">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>500</height>
+             </size>
+            </property>
+            <property name="acceptDrops">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QSplitter" name="splitter_10">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <widget class="QLabel" name="label_3">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>tag</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="tag_card">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-          </widget>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_15">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>tag</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="tag_card">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QPushButton" name="save_card">
@@ -214,37 +217,38 @@
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
                   <item>
-                   <widget class="QSplitter" name="splitter">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <widget class="QLabel" name="label_10">
-                     <property name="maximumSize">
-                      <size>
-                       <width>50</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>sort by</string>
-                     </property>
-                    </widget>
-                    <widget class="QComboBox" name="sort_box">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <item>
-                      <property name="text">
-                       <string>last</string>
+                   <layout class="QHBoxLayout" name="horizontalLayout_12">
+                    <item>
+                     <widget class="QLabel" name="label_10">
+                      <property name="maximumSize">
+                       <size>
+                        <width>50</width>
+                        <height>16777215</height>
+                       </size>
                       </property>
-                     </item>
-                     <item>
                       <property name="text">
-                       <string>first</string>
+                       <string>sort by</string>
                       </property>
-                     </item>
-                    </widget>
-                   </widget>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="sort_box">
+                      <property name="styleSheet">
+                       <string notr="true"/>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>last</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>first</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>
@@ -259,62 +263,63 @@
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_10">
                   <item>
-                   <widget class="QSplitter" name="splitter_2">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <widget class="QLabel" name="label_11">
-                     <property name="maximumSize">
-                      <size>
-                       <width>70</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>stars filter</string>
-                     </property>
-                    </widget>
-                    <widget class="QComboBox" name="filter_box">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <item>
-                      <property name="text">
-                       <string>-</string>
+                   <layout class="QHBoxLayout" name="horizontalLayout_13">
+                    <item>
+                     <widget class="QLabel" name="label_11">
+                      <property name="maximumSize">
+                       <size>
+                        <width>70</width>
+                        <height>16777215</height>
+                       </size>
                       </property>
-                     </item>
-                     <item>
                       <property name="text">
-                       <string>★★★★★</string>
+                       <string>stars filter</string>
                       </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>★★★★☆</string>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="filter_box">
+                      <property name="styleSheet">
+                       <string notr="true"/>
                       </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>★★★☆☆</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>★★☆☆☆</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>★☆☆☆☆</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>☆☆☆☆☆</string>
-                      </property>
-                     </item>
-                    </widget>
-                   </widget>
+                      <item>
+                       <property name="text">
+                        <string>-</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>★★★★★</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>★★★★☆</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>★★★☆☆</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>★★☆☆☆</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>★☆☆☆☆</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>☆☆☆☆☆</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>
@@ -444,64 +449,65 @@ p, li { white-space: pre-wrap; }
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_13">
               <item>
-               <widget class="QSplitter" name="splitter_3">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_12">
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Theme</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="theme_box">
-                 <item>
-                  <property name="text">
-                   <string>AMOLED</string>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>30</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
                   <property name="text">
-                   <string>Aqua</string>
+                   <string>Theme</string>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ConsoleStyle</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ElegantDark</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ManjaroMix</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>MaterialDark</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>NeonButtons</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Ubuntu</string>
-                  </property>
-                 </item>
-                </widget>
-               </widget>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="theme_box">
+                  <item>
+                   <property name="text">
+                    <string>AMOLED</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Aqua</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ConsoleStyle</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ElegantDark</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ManjaroMix</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>MaterialDark</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>NeonButtons</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Ubuntu</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>
@@ -536,65 +542,67 @@ p, li { white-space: pre-wrap; }
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_12">
               <item>
-               <widget class="QSplitter" name="splitter_4">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_7">
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Dictionary</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="jp_dic">
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>Goo (JP)</string>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>30</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
                   <property name="text">
-                   <string>Jisho (JP)</string>
+                   <string>Dictionary</string>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Weblio (JP)</string>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="jp_dic">
+                  <property name="styleSheet">
+                   <string notr="true"/>
                   </property>
-                 </item>
-                </widget>
-               </widget>
+                  <item>
+                   <property name="text">
+                    <string>Goo (JP)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Jisho (JP)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Weblio (JP)</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QSplitter" name="splitter_5">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_8">
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Card Maker</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="cm_jp">
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                </widget>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_5">
+                <item>
+                 <widget class="QLabel" name="label_8">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Card Maker</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="cm_jp">
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>
@@ -629,75 +637,77 @@ p, li { white-space: pre-wrap; }
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_11">
               <item>
-               <widget class="QSplitter" name="splitter_6">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_4">
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Dictionary</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="dic">
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>Cambridge (EN)</string>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QLabel" name="label_4">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>30</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
                   <property name="text">
-                   <string>Dictionary (EN)</string>
+                   <string>Dictionary</string>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Google Translate (EN &gt; PT-BR)</string>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="dic">
+                  <property name="styleSheet">
+                   <string notr="true"/>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Linguee (EN &gt; PT-BR)</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Oxford Languages (EN)</string>
-                  </property>
-                 </item>
-                </widget>
-               </widget>
+                  <item>
+                   <property name="text">
+                    <string>Cambridge (EN)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dictionary (EN)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Google Translate (EN &gt; PT-BR)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Linguee (EN &gt; PT-BR)</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Oxford Languages (EN)</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QSplitter" name="splitter_7">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_6">
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Card Maker</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="cm">
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                </widget>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <widget class="QLabel" name="label_6">
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Card Maker</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="cm">
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>
@@ -738,380 +748,408 @@ p, li { white-space: pre-wrap; }
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_14">
               <item>
-               <widget class="QSplitter" name="splitter_15">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_21">
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>AUTO FILL</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="fill_key_a">
-                 <property name="minimumSize">
-                  <size>
-                   <width>80</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>80</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>-</string>
+               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                <item>
+                 <widget class="QLabel" name="label_21">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>0</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ALT</string>
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
                   <property name="text">
-                   <string>CTRL</string>
+                   <string>AUTO FILL</string>
                   </property>
-                 </item>
-                 <item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="fill_key_a">
+                  <property name="minimumSize">
+                   <size>
+                    <width>80</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>80</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>-</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ALT</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CTRL</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>SHIFT</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_22">
+                  <property name="minimumSize">
+                   <size>
+                    <width>10</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>10</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string>SHIFT</string>
+                   <string>+</string>
                   </property>
-                 </item>
-                </widget>
-                <widget class="QLabel" name="label_22">
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>10</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>+</string>
-                 </property>
-                </widget>
-                <widget class="QLineEdit" name="fill_key_b">
-                 <property name="minimumSize">
-                  <size>
-                   <width>60</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                </widget>
-                <widget class="QCheckBox" name="checkBox_5">
-                 <property name="text">
-                  <string>enable</string>
-                 </property>
-                </widget>
-               </widget>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="fill_key_b">
+                  <property name="minimumSize">
+                   <size>
+                    <width>60</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_5">
+                  <property name="text">
+                   <string>enable</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QSplitter" name="splitter_11">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_15">
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>FRONT CARD</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="front_key_a">
-                 <property name="minimumSize">
-                  <size>
-                   <width>80</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>80</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>-</string>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QLabel" name="label_15">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>0</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ALT</string>
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
                   <property name="text">
-                   <string>CTRL</string>
+                   <string>FRONT CARD</string>
                   </property>
-                 </item>
-                 <item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="front_key_a">
+                  <property name="minimumSize">
+                   <size>
+                    <width>80</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>80</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>-</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ALT</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CTRL</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>SHIFT</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_18">
+                  <property name="minimumSize">
+                   <size>
+                    <width>10</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>10</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string>SHIFT</string>
+                   <string>+</string>
                   </property>
-                 </item>
-                </widget>
-                <widget class="QLabel" name="label_18">
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>10</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>+</string>
-                 </property>
-                </widget>
-                <widget class="QLineEdit" name="front_key_b">
-                 <property name="minimumSize">
-                  <size>
-                   <width>60</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                </widget>
-                <widget class="QCheckBox" name="checkBox_2">
-                 <property name="text">
-                  <string>enable</string>
-                 </property>
-                </widget>
-               </widget>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="front_key_b">
+                  <property name="minimumSize">
+                   <size>
+                    <width>60</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_2">
+                  <property name="text">
+                   <string>enable</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QSplitter" name="splitter_13">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_17">
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>BACK CARD</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="back_key_a">
-                 <property name="minimumSize">
-                  <size>
-                   <width>80</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>80</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>-</string>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <widget class="QLabel" name="label_17">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>0</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ALT</string>
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
                   <property name="text">
-                   <string>CTRL</string>
+                   <string>BACK CARD</string>
                   </property>
-                 </item>
-                 <item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="back_key_a">
+                  <property name="minimumSize">
+                   <size>
+                    <width>80</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>80</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>-</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ALT</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CTRL</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>SHIFT</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_19">
+                  <property name="minimumSize">
+                   <size>
+                    <width>10</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>10</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string>SHIFT</string>
+                   <string>+</string>
                   </property>
-                 </item>
-                </widget>
-                <widget class="QLabel" name="label_19">
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>10</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>+</string>
-                 </property>
-                </widget>
-                <widget class="QLineEdit" name="back_key_b">
-                 <property name="minimumSize">
-                  <size>
-                   <width>60</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                </widget>
-                <widget class="QCheckBox" name="checkBox_3">
-                 <property name="text">
-                  <string>enable</string>
-                 </property>
-                </widget>
-               </widget>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="back_key_b">
+                  <property name="minimumSize">
+                   <size>
+                    <width>60</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_3">
+                  <property name="text">
+                   <string>enable</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QSplitter" name="splitter_14">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <widget class="QLabel" name="label_16">
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>TAG CARD</string>
-                 </property>
-                </widget>
-                <widget class="QComboBox" name="tag_key_a">
-                 <property name="minimumSize">
-                  <size>
-                   <width>80</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>80</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>-</string>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <widget class="QLabel" name="label_16">
+                  <property name="minimumSize">
+                   <size>
+                    <width>150</width>
+                    <height>0</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ALT</string>
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
                   </property>
-                 </item>
-                 <item>
                   <property name="text">
-                   <string>CTRL</string>
+                   <string>TAG CARD</string>
                   </property>
-                 </item>
-                 <item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="tag_key_a">
+                  <property name="minimumSize">
+                   <size>
+                    <width>80</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>80</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>-</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ALT</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CTRL</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>SHIFT</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_20">
+                  <property name="minimumSize">
+                   <size>
+                    <width>10</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>10</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="text">
-                   <string>SHIFT</string>
+                   <string>+</string>
                   </property>
-                 </item>
-                </widget>
-                <widget class="QLabel" name="label_20">
-                 <property name="minimumSize">
-                  <size>
-                   <width>10</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>10</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>+</string>
-                 </property>
-                </widget>
-                <widget class="QLineEdit" name="tag_key_b">
-                 <property name="minimumSize">
-                  <size>
-                   <width>60</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                </widget>
-                <widget class="QCheckBox" name="checkBox_4">
-                 <property name="text">
-                  <string>enable</string>
-                 </property>
-                </widget>
-               </widget>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="tag_key_b">
+                  <property name="minimumSize">
+                   <size>
+                    <width>60</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_4">
+                  <property name="text">
+                   <string>enable</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>

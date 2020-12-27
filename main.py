@@ -11,8 +11,6 @@ import importlib
 import requests
 from bs4 import BeautifulSoup
 
-from pynput.keyboard import HotKey, Key, KeyCode, Listener
-
 
 # CONTROLLERS
 from controllers.card_maker_controller import CardMakerController
