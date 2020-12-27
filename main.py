@@ -43,9 +43,7 @@ class MainWindow(QMainWindow):
         self.keyboard.front_value.connect(self.set_front)        
         self.keyboard.back_value.connect(self.set_back)
         self.keyboard.tag_value.connect(self.set_tag)
-        self.keyboard.auto_fill.connect(self.update_gui)
-        
-       
+        self.keyboard.auto_fill.connect(self.update_gui)       
 
         # HISTORY
         self.history.history_position_en[0] = self.history.get_rows("EN", "last", "-")        
@@ -178,7 +176,6 @@ class MainWindow(QMainWindow):
         elif language == "JP":
             self.card_maker.deck = [language, self.settings_list[0][1]]
 
-
         if language == "EN":
                 
             if word != self.card_maker.last_word:
@@ -277,6 +274,7 @@ class MainWindow(QMainWindow):
         self.sort_box.currentText(), 
         self.filter_box.currentText()))
 
+
 app = QApplication(sys.argv)
 
 web = QWebEngineView()
@@ -286,7 +284,6 @@ icon = QIcon("content/icon.ico")
 tray = QSystemTrayIcon()
 tray.setIcon(icon)
 tray.setVisible(True)
-
 
 menu = QMenu()
 

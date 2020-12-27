@@ -8,8 +8,6 @@ from PyQt5.QtCore import Qt, QThread, pyqtSignal
 from controllers.clipboard_controller import ClipboardController
 from controllers.history_controller import HistoryController
 
-
-
 class KeyboardController(QThread):
     
     tag_value = pyqtSignal(str)
@@ -64,9 +62,11 @@ class KeyboardController(QThread):
         self.front_value.emit(cp)
 
 
-    def back_function(self):        
-        self.back_value.emit("back!")
+    def back_function(self):
+        cp = self.copy_selected_text()
+        self.back_value.emit(cp)
         
 
     def tag_function(self):
-        self.tag_value.emit("works!")
+        cp = self.copy_selected_text()
+        self.tag_value.emit(cp)
