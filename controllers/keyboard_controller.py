@@ -8,12 +8,14 @@ from PyQt5.QtCore import Qt, QThread, pyqtSignal
 from controllers.clipboard_controller import ClipboardController
 from controllers.history_controller import HistoryController
 
+from models.settings import Settings
+
 class KeyboardController(QThread):
     
     tag_value = pyqtSignal(str)
     back_value = pyqtSignal(str)
     front_value = pyqtSignal(str)
-    auto_fill = pyqtSignal(str, str, str, int, str)
+    auto_fill = pyqtSignal(str, str, str, int, str)    
 
 
     def __init__(self, parent=None):
@@ -21,21 +23,23 @@ class KeyboardController(QThread):
         self.clipboard = ClipboardController()
         self.history = HistoryController()
 
+        self.settings = Settings()
 
-    def function_1(self):
-        print('Function 1 activated')
+        # get hotkeys from DB and save in a tuple.
+        self.hotkeys = self.get_hotkeys_list()
 
-    def function_2(self):
-        print('Function 2 activated')
+
+    def get_hotkeys_list(self):
+        return self.settings.get_hotkeys()
 
 
     def run(self):
 
         with keyboard.GlobalHotKeys({
-                '<ctrl>+1': self.auto_fill_function,
-                '<ctrl>+2': self.front_function,
-                '<ctrl>+3': self.back_function,
-                '<ctrl>+4': self.tag_function}) as h:
+                self.hotkeys[0][0]: self.auto_fill_function,
+                self.hotkeys[0][1]: self.front_function,
+                self.hotkeys[0][2]: self.back_function,
+                self.hotkeys[0][3]: self.tag_function}) as h:
             h.join()
 
 
@@ -51,10 +55,7 @@ class KeyboardController(QThread):
 
         gui_data = self.clipboard.clipboard_check(cp)
 
-        self.auto_fill.emit(gui_data[0], gui_data[1], gui_data[2], gui_data[3], gui_data[4])    
-        #self.front_value.emit(gui_data[0])
-        #self.back_value.emit(f"<center><br/><h2>{self.history.stars_show(gui_data[3])}<h2></center>{gui_data[1]}")
-        #self.tag_value.emit(gui_data[2])    
+        self.auto_fill.emit(gui_data[0], gui_data[1], gui_data[2], gui_data[3], gui_data[4])
 
 
     def front_function(self):

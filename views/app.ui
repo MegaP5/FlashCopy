@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>796</width>
-    <height>782</height>
+    <height>796</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -60,29 +60,35 @@
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
           <item>
-           <widget class="QLineEdit" name="front_card">
+           <widget class="QPlainTextEdit" name="front_card">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>20</height>
+              <height>30</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="bold_button_front">
             <property name="minimumSize">
              <size>
               <width>30</width>
-              <height>0</height>
+              <height>30</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>30</width>
-              <height>16777215</height>
+              <height>30</height>
              </size>
             </property>
             <property name="font">
@@ -408,11 +414,6 @@ p, li { white-space: pre-wrap; }
              </widget>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="tab_3">
-           <attribute name="title">
-            <string>JAPANESE</string>
-           </attribute>
           </widget>
          </widget>
         </item>
@@ -789,17 +790,17 @@ p, li { white-space: pre-wrap; }
                   </item>
                   <item>
                    <property name="text">
-                    <string>ALT</string>
+                    <string>alt</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>CTRL</string>
+                    <string>ctrl</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>SHIFT</string>
+                    <string>shift</string>
                    </property>
                   </item>
                  </widget>
@@ -841,8 +842,14 @@ p, li { white-space: pre-wrap; }
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_5">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>enable</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -890,17 +897,17 @@ p, li { white-space: pre-wrap; }
                   </item>
                   <item>
                    <property name="text">
-                    <string>ALT</string>
+                    <string>alt</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>CTRL</string>
+                    <string>ctrl</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>SHIFT</string>
+                    <string>shift</string>
                    </property>
                   </item>
                  </widget>
@@ -942,8 +949,14 @@ p, li { white-space: pre-wrap; }
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_2">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>enable</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -991,17 +1004,17 @@ p, li { white-space: pre-wrap; }
                   </item>
                   <item>
                    <property name="text">
-                    <string>ALT</string>
+                    <string>alt</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>CTRL</string>
+                    <string>ctrl</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>SHIFT</string>
+                    <string>shift</string>
                    </property>
                   </item>
                  </widget>
@@ -1043,8 +1056,14 @@ p, li { white-space: pre-wrap; }
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_3">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>enable</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -1092,17 +1111,17 @@ p, li { white-space: pre-wrap; }
                   </item>
                   <item>
                    <property name="text">
-                    <string>ALT</string>
+                    <string>alt</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>CTRL</string>
+                    <string>ctrl</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>SHIFT</string>
+                    <string>shift</string>
                    </property>
                   </item>
                  </widget>
@@ -1144,8 +1163,14 @@ p, li { white-space: pre-wrap; }
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBox_4">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="text">
                    <string>enable</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -1185,7 +1210,10 @@ p, li { white-space: pre-wrap; }
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QTextBrowser" name="textBrowser">
+         <widget class="QTextBrowser" name="about_text">
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
           <property name="html">
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1206,6 +1234,16 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:600;&quot;&gt;2020&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="about_button">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="text">
+           <string>PushButton</string>
           </property>
          </widget>
         </item>

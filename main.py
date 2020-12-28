@@ -3,7 +3,6 @@ from PyQt5.Qt import Qt, QIcon, QSystemTrayIcon, QMenu, QAction, QUrl
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import QDialog, QApplication, QPushButton, QVBoxLayout, QMainWindow
 
-
 import random
 import sys
 import tkinter
@@ -11,13 +10,11 @@ import importlib
 import requests
 from bs4 import BeautifulSoup
 
-
 # CONTROLLERS
 from controllers.card_maker_controller import CardMakerController
 from controllers.dictionary_controller import DictionaryController
 from controllers.history_controller import HistoryController
 from controllers.settings_controller import SettingsController
-#from controllers.clipboard_controller import ClipboardController
 from controllers.keyboard_controller import KeyboardController
 
 
@@ -32,11 +29,9 @@ class MainWindow(QMainWindow):
         self.dictionary = DictionaryController()
         self.history = HistoryController()
         self.settings = SettingsController()
-        #self.clipboard = ClipboardController()
         self.keyboard = KeyboardController()
 
-        #KEYBOARD
-        #self.keyboard.keyPressed.connect(print)        
+        #KEYBOARD   
         self.keyboard.start()
         self.keyboard.front_value.connect(self.set_front)        
         self.keyboard.back_value.connect(self.set_back)
@@ -60,20 +55,14 @@ class MainWindow(QMainWindow):
         if(self.history.history_position_en[0] <= 50):
             self.next_button.setEnabled(False)
 
-        # SETTINGS
-        self.settings_list = self.settings.get_settings()
-
-        # HOTKEYS
-        self.fill_key_b.setMaxLength(1)
-        self.front_key_b.setMaxLength(1)
-        self.back_key_b.setMaxLength(1)
-        self.tag_key_b.setMaxLength(1)
-
         # DICTIONARY
         self.cm_jp.addItems(
         self.dictionary.get_dict_list_jp())
         self.cm.addItems(
-        self.dictionary.get_dict_list_en())
+        self.dictionary.get_dict_list_en())        
+
+        # SETTINGS
+        self.settings_list = self.settings.get_settings()
 
         # SET SETTINGS VALUES
         index0 = self.jp_dic.findText(
@@ -96,6 +85,36 @@ class MainWindow(QMainWindow):
         self.settings_list[0][4], QtCore.Qt.MatchFixedString)
         self.theme_box.setCurrentIndex(index4)
 
+        # HOTKEYS
+        self.hotkeys = self.hotkeys_list(self.settings.get_hotkeys_list())
+
+        self.fill_key_b.setMaxLength(1)
+        self.front_key_b.setMaxLength(1)
+        self.back_key_b.setMaxLength(1)
+        self.tag_key_b.setMaxLength(1)
+
+        # SET SETTINGS HOTKEYS VALUES
+        index0 = self.fill_key_a.findText(
+        self.hotkeys[0][0], QtCore.Qt.MatchFixedString)
+        self.fill_key_a.setCurrentIndex(index0)
+
+        index1 = self.front_key_a.findText(
+        self.hotkeys[1][0], QtCore.Qt.MatchFixedString)
+        self.front_key_a.setCurrentIndex(index1)
+
+        index2 = self.back_key_a.findText(
+        self.hotkeys[2][0], QtCore.Qt.MatchFixedString)
+        self.back_key_a.setCurrentIndex(index2)
+
+        index3 = self.tag_key_a.findText(
+        self.hotkeys[3][0], QtCore.Qt.MatchFixedString)
+        self.tag_key_a.setCurrentIndex(index3)
+
+        self.fill_key_b.setText(self.hotkeys[0][1])
+        self.front_key_b.setText(self.hotkeys[1][1])
+        self.back_key_b.setText(self.hotkeys[2][1])
+        self.tag_key_b.setText(self.hotkeys[3][1])
+
         # DEFAULT THEME
         self.setStyleSheet(open('content/themes/' + 
         self.theme_box.currentText() + '.css').read())
@@ -108,12 +127,60 @@ class MainWindow(QMainWindow):
         self.save_card_clicked)
         self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)     
 
-        #QApplication.clipboard().dataChanged.connect(
-        #self.clipboardChanged)
         self.show()
 
         # ABOUT
-        self.textBrowser.setOpenExternalLinks(True)
+        self.about_text.setOpenExternalLinks(True)
+
+
+        self.bold_button_front.clicked.connect(
+        self.get_selection)
+
+
+
+    def hotkeys_list(self, hotkeys):
+
+        hk = []
+
+        for hotkey in hotkeys[0]:
+            if "ctrl" in hotkey:
+                hk.append(["ctrl", hotkey[-1]])
+            elif "alt" in hotkey:
+                hk.append(["alt", hotkey[-1]])
+            elif "shift" in hotkey:
+                hk.append(["shift", hotkey[-1]])
+            else:
+                hk.append(["-", hotkey[-1]])
+
+        return hk
+
+
+    def get_selection(self):
+        cursor = self.front_card.textCursor()
+        text = self.front_card.toPlainText()
+        textSelected = cursor.selectedText()
+
+        #cursor.setPosition(5)
+        
+        selection_start = cursor.selectionStart()
+        selection_end = cursor.selectionEnd()
+        
+        #s = textSelected.upper()
+        #self.about_text.append(s)
+        #textSelected.setPosition("uiui", QtGui.QTextCursor.KeepAnchor)
+
+        bold_string = self.bold_string(text, selection_start, selection_end)
+
+        self.front_card.setPlainText(bold_string)
+
+
+    def bold_string(self, string, selection_start, selection_end):
+
+        if not(selection_start == selection_end):
+            string = string[:selection_end] + "</b>" + string[selection_end:]
+            string = string[:selection_start] + "<b>" + string[selection_start:]        
+
+        return string
 
 
     def set_tag(self, val):
@@ -125,7 +192,7 @@ class MainWindow(QMainWindow):
 
 
     def set_front(self, val):
-        self.front_card.setText(val)
+        self.front_card.setPlainText(val)
 
 
     def save_card_clicked(self):
@@ -144,7 +211,16 @@ class MainWindow(QMainWindow):
         self.cm_jp.currentText(), 
         self.dic.currentText(), 
         self.cm.currentText(),
-        self.theme_box.currentText())
+        self.theme_box.currentText(),
+        self.fill_key_a.currentText(),
+        self.fill_key_b.text(),
+        self.front_key_a.currentText(),
+        self.front_key_b.text(),
+        self.back_key_a.currentText(),
+        self.back_key_b.text(),
+        self.tag_key_a.currentText(),
+        self.tag_key_b.text())
+
         self.setStyleSheet(open('content/themes/' + 
         self.theme_box.currentText() + '.css').read())
 
@@ -156,7 +232,7 @@ class MainWindow(QMainWindow):
         url = self.dictionary.get_dict_url(language, word)
 
         self.dict_web.load(QUrl(url))
-        self.front_card.setText(word)
+        self.front_card.setPlainText(word)
 
         self.back_card.setText(
         f"<center><br/><h2>{self.history.stars_show(stars)}<h2></center>{b_card}")
