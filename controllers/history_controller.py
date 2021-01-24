@@ -49,8 +49,12 @@ class HistoryController:
 
         stars_list = ["☆☆☆☆☆", '★☆☆☆☆', '★★☆☆☆', '★★★☆☆', '★★★★☆', '★★★★★']
 
-        if type(stars) == int:            
-            return stars_list[stars]
+        if type(stars) == int:
+            try:
+                strs = stars_list[stars]
+                return strs
+            except:
+                return stars_list[0]
         else:
             return stars_list[0]
 
